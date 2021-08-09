@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "pieceJointes": {
+      "home": {
+        "title": "PieceJointes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Piece Jointes",
+        "createOrEditLabel": "Créer ou éditer un Piece Jointes",
+        "notFound": "Aucun Piece Jointes trouvé"
+      },
+      "created": "Un nouveau Piece Jointes a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Piece Jointes avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Piece Jointes avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Piece Jointes {{ id }} ?"
+      },
+      "detail": {
+        "title": "Piece Jointes"
+      },
+      "id": "ID",
+      "pj": "Pj",
+      "actions": "Actions"
+    }
+  }
+}

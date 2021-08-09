@@ -1,0 +1,27 @@
+{
+  "name": "TypeAt",
+  "fields": [
+    {
+      "fieldName": "typeAt",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "ficheSuiviSante",
+      "otherEntityRelationshipName": "typeAt",
+      "relationshipName": "ficheSuiviSante"
+    }
+  ],
+  "entityTableName": "type_at",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123049"
+}

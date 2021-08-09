@@ -1,0 +1,199 @@
+<div>
+  <h2 id="page-heading" data-cy="ActionsHeading">
+    <span jhiTranslate="esacpApp.actions.home.title">Actions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="esacpApp.actions.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-actions"
+        [routerLink]="['/actions/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="esacpApp.actions.home.createLabel"> Create a new Actions </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="actions?.length === 0">
+    <span jhiTranslate="esacpApp.actions.home.notFound">No actions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="actions && actions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="redacteur">
+            <span jhiTranslate="esacpApp.actions.redacteur">Redacteur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isActionImmediate">
+            <span jhiTranslate="esacpApp.actions.isActionImmediate">Is Action Immediate</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateEtHeureCreation">
+            <span jhiTranslate="esacpApp.actions.dateEtHeureCreation">Date Et Heure Creation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="titre"><span jhiTranslate="esacpApp.actions.titre">Titre</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="descriptionAction">
+            <span jhiTranslate="esacpApp.actions.descriptionAction">Description Action</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="descriptionReponse">
+            <span jhiTranslate="esacpApp.actions.descriptionReponse">Description Reponse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="delai"><span jhiTranslate="esacpApp.actions.delai">Delai</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="etat"><span jhiTranslate="esacpApp.actions.etat">Etat</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="pilote"><span jhiTranslate="esacpApp.actions.pilote">Pilote</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateEtHeureValidationPilote">
+            <span jhiTranslate="esacpApp.actions.dateEtHeureValidationPilote">Date Et Heure Validation Pilote</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="porteur">
+            <span jhiTranslate="esacpApp.actions.porteur">Porteur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateEtHeureValidationPorteur">
+            <span jhiTranslate="esacpApp.actions.dateEtHeureValidationPorteur">Date Et Heure Validation Porteur</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hse"><span jhiTranslate="esacpApp.actions.hse">Hse</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateEtHeureValidationHse">
+            <span jhiTranslate="esacpApp.actions.dateEtHeureValidationHse">Date Et Heure Validation Hse</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="rapport.id">
+            <span jhiTranslate="esacpApp.actions.rapport">Rapport</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="correctPrevent.correctPrevent">
+            <span jhiTranslate="esacpApp.actions.correctPrevent">Correct Prevent</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="priorite.priorite">
+            <span jhiTranslate="esacpApp.actions.priorite">Priorite</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="etapeValidation.etapeValidation">
+            <span jhiTranslate="esacpApp.actions.etapeValidation">Etape Validation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="typeAction.typeAction">
+            <span jhiTranslate="esacpApp.actions.typeAction">Type Action</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="criticite.criticite">
+            <span jhiTranslate="esacpApp.actions.criticite">Criticite</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pj.pj"><span jhiTranslate="esacpApp.actions.pj">Pj</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let actions of actions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/actions', actions.id, 'view']">{{ actions.id }}</a>
+          </td>
+          <td>{{ actions.redacteur }}</td>
+          <td>{{ actions.isActionImmediate }}</td>
+          <td>{{ actions.dateEtHeureCreation | formatMediumDate }}</td>
+          <td>{{ actions.titre }}</td>
+          <td>{{ actions.descriptionAction }}</td>
+          <td>{{ actions.descriptionReponse }}</td>
+          <td>{{ actions.delai | formatMediumDate }}</td>
+          <td>{{ actions.etat }}</td>
+          <td>{{ actions.pilote }}</td>
+          <td>{{ actions.dateEtHeureValidationPilote | formatMediumDate }}</td>
+          <td>{{ actions.porteur }}</td>
+          <td>{{ actions.dateEtHeureValidationPorteur | formatMediumDate }}</td>
+          <td>{{ actions.hse }}</td>
+          <td>{{ actions.dateEtHeureValidationHse | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="actions.rapport">
+              <a [routerLink]="['/rapport', actions.rapport?.id, 'view']">{{ actions.rapport?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="actions.correctPrevent">
+              <a [routerLink]="['/correct-prevent', actions.correctPrevent?.id, 'view']">{{ actions.correctPrevent?.correctPrevent }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="actions.priorite">
+              <a [routerLink]="['/priorite', actions.priorite?.id, 'view']">{{ actions.priorite?.priorite }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="actions.etapeValidation">
+              <a [routerLink]="['/etape-validation', actions.etapeValidation?.id, 'view']">{{
+                actions.etapeValidation?.etapeValidation
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="actions.typeAction">
+              <a [routerLink]="['/type-action', actions.typeAction?.id, 'view']">{{ actions.typeAction?.typeAction }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="actions.criticite">
+              <a [routerLink]="['/criticite', actions.criticite?.id, 'view']">{{ actions.criticite?.criticite }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="actions.pj">
+              <a [routerLink]="['/piece-jointes', actions.pj?.id, 'view']">{{ actions.pj?.pj }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/actions', actions.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/actions', actions.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(actions)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="actions && actions.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

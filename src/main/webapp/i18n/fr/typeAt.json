@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "typeAt": {
+      "home": {
+        "title": "TypeAts",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Type At",
+        "createOrEditLabel": "Créer ou éditer un Type At",
+        "notFound": "Aucun Type At trouvé"
+      },
+      "created": "Un nouveau Type At a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type At avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type At avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type At {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type At"
+      },
+      "id": "ID",
+      "typeAt": "Type At",
+      "ficheSuiviSante": "Fiche Suivi Sante"
+    }
+  }
+}

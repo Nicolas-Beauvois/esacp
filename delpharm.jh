@@ -1,0 +1,284 @@
+
+application {
+  config {
+    baseName esacp,
+    applicationType monolith,
+    packageName fr.delpharm.esacp,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    devDatabaseType mysql,
+    clientFramework angular,
+  }
+  entities *
+}
+
+entity UserExtra {
+	matricule String
+    dateDeNaissance LocalDate
+    isRedacteur Boolean
+    isPilote Boolean
+    isPorteur Boolean
+    isCodir Boolean
+    isHse Boolean
+    isValidateurHse Boolean
+}
+
+entity Sexe {
+	sexe String
+}
+
+entity CorrectPrevent {
+	correctPrevent String
+}
+
+entity Csp {
+	csp String
+}
+
+entity FicheSuiviSante{
+	suiviIndividuel Boolean
+    medecinDuTravail String
+    dateDeCreation LocalDate
+    datededebutAT LocalDate
+    datedefinAT LocalDate
+    propositionMedecinDuTravail String
+    aRevoirLe LocalDate
+}
+
+entity Actions {
+	redacteur String
+	isActionImmediate Boolean
+	dateEtHeureCreation LocalDate
+	titre String
+	descriptionAction String
+    descriptionReponse String
+    delai LocalDate
+    etat String
+    pilote String
+    dateEtHeureValidationPilote LocalDate
+    porteur String
+    dateEtHeureValidationPorteur LocalDate
+    hse String
+    dateEtHeureValidationHse LocalDate
+}
+
+entity Categorie {
+	categorie String
+}
+
+entity Contrat {
+	contrat String
+}
+
+entity Criticite {
+	criticite String
+    criticiteAcronyme String
+}
+
+entity Equipement {
+	equipement String
+}
+
+entity EtapeValidation {
+	etapeValidation String
+}
+
+entity ListingMail {
+	typeMessage String
+    email String
+}
+
+entity Mail {
+	typeMail String
+    msgMail String
+}
+
+entity NatureAccident {
+	typeNatureAccident String
+}
+
+entity OrigineLesions {
+	origineLesions String
+}
+
+entity PieceJointes {
+	pj String
+}
+
+entity Priorite {
+	priorite String
+    accrPriorite String
+}
+
+entity Rapport {
+	redacteur String
+	dateDeCreation LocalDate
+    uap String
+    dateEtHeureConnaissanceAt LocalDate
+    prevenuComment String
+    nomPremierePersonnePrevenu String
+    dateEtHeurePrevenu LocalDate
+    isTemoin Boolean
+    commentaireTemoin String
+    isTiersEnCause Boolean
+    commentaireTiersEnCause String
+    isAutreVictime Boolean
+    commentaireAutreVictime String
+    isRapportDePolice Boolean
+  	commentaireRapportDePolice String
+    isVictimeTransports Boolean
+    commentaireVictimeTransporter String
+    dateEtHeureMomentAccident LocalDate
+    lieuAccident String
+    isIdentifierDu Boolean
+    circonstanceAccident String
+    materielEnCause String
+    remarques String
+    pilote String
+    dateEtHeureValidationPilote LocalDate
+    porteur String
+    dateEtHeureValidationPorteur LocalDate
+    hse String
+    dateEtHeureValidationHse LocalDate
+    isIntervention8300 Boolean
+    isInterventionInfirmiere Boolean
+    commentaireInfirmere String
+    isInterventionMedecin Boolean
+    commentaireMedecin String
+    isInterventionsecouriste Boolean
+    commentaireSecouriste String
+    isInterventionsecouristeExterieur Boolean
+    retourAuPosteDeTravail Boolean
+    travailLegerPossible String
+    analyseAChaudInfirmiere Boolean
+    analyseAChaudCodir Boolean
+    analyseAChaudHse Boolean
+    analyseAChaudNplus1 Boolean
+    analyseAChaudCssCt Boolean
+    analyseAChaudCommentaire String
+    pourquoi1 String
+    pourquoi2 String
+    pourquoi3 String
+    pourquoi4 String
+    pourquoi5 String
+    bras Boolean
+	chevilles Boolean
+	colonne Boolean
+	cou Boolean
+	coude Boolean
+	cos Boolean
+	epaule Boolean
+	genou Boolean
+	jambes Boolean
+	mains Boolean
+	oeil Boolean
+	pieds Boolean
+	poignet Boolean
+	tete Boolean
+	torse Boolean
+}
+
+entity Departement {
+	departement String
+    typeService String
+}
+
+entity SiegeLesions {
+	typeSiegeDeLesions String
+}
+
+entity Site {
+	site String
+}
+
+entity Statut {
+	statut String
+}
+
+entity Type {
+	origine String
+    accOrigine String
+}
+
+entity Repartition {
+	repartition String
+}
+
+entity TypeAt {
+	typeAt String
+}
+
+entity TypeAction {
+	typeAction String
+}
+
+entity TypeRapport {
+	typeRapport String
+}
+
+
+//*******************************************
+// Relation avec User
+//*******************************************
+relationship ManyToOne {
+  	Rapport{user(login)} to User
+}
+
+relationship OneToOne {
+  	UserExtra to User
+}
+
+//*******************************************
+// Relation avec autre
+//*******************************************
+relationship OneToMany {
+	SiegeLesions to Rapport
+    FicheSuiviSante to Rapport
+	Rapport to Actions
+	Repartition to Type{Repartition(repartition)}
+    TypeAt to FicheSuiviSante{TypeAt(typeAt)}
+}
+
+//*******************************************
+// Relation avec Actions
+//*******************************************
+
+relationship OneToMany {
+  CorrectPrevent to Actions{CorrectPrevent(correctPrevent)}
+  Priorite to Actions{Priorite(priorite)}
+  EtapeValidation to Actions{EtapeValidation(etapeValidation)}
+  TypeAction to Actions{TypeAction(typeAction)}
+  Criticite to Actions{Criticite(criticite)}
+  PieceJointes to Actions{Pj(pj)}
+  
+}
+
+//*******************************************
+// Relation avec UserExtra
+//*******************************************
+relationship OneToMany {
+  Statut to UserExtra{Statut(statut)}
+  Sexe to UserExtra{Sexe(sexe)}
+  Departement to UserExtra{Departement(departement)}
+  Contrat to UserExtra{Contrat(contrat)}
+  Site to UserExtra{Site(site)}
+  Csp to UserExtra{Csp(csp)}
+}
+
+//*******************************************
+// Relation avec Rapport
+//*******************************************
+
+relationship OneToMany {
+  Type to Rapport{Type(origine)}
+  Categorie to Rapport{Categorie(categorie)}
+  Equipement to Rapport{equipement(equipement)}
+  TypeRapport to Rapport{TypeRapport(typeRapport)}
+  NatureAccident to Rapport{NatureAccident(typeNatureAccident)}
+  OrigineLesions to Rapport{OrigineLesions(origineLesions)}
+ }
+ 
+
+dto * with mapstruct except User, Account, Mail
+service * with serviceClass except User, Account, Mail
+paginate * with pagination

@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Rapport.
+    -->
+    <changeSet id="20210809123042-1" author="jhipster">
+        <createTable tableName="rapport">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="redacteur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_de_creation" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="uap" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_et_heure_connaissance_at" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="prevenu_comment" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nom_premiere_personne_prevenu" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_et_heure_prevenu" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_temoin" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_temoin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_tiers_en_cause" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_tiers_en_cause" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_autre_victime" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_autre_victime" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_rapport_de_police" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_rapport_de_police" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_victime_transports" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_victime_transporter" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_et_heure_moment_accident" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="lieu_accident" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_identifier_du" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="circonstance_accident" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="materiel_en_cause" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="remarques" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pilote" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_et_heure_validation_pilote" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="porteur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_et_heure_validation_porteur" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="hse" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="date_et_heure_validation_hse" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_intervention_8300" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_intervention_infirmiere" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_infirmere" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_intervention_medecin" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_medecin" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_interventionsecouriste" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="commentaire_secouriste" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_interventionsecouriste_exterieur" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="retour_au_poste_de_travail" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="travail_leger_possible" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="analyse_a_chaud_infirmiere" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="analyse_a_chaud_codir" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="analyse_a_chaud_hse" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="analyse_a_chaud_nplus_1" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="analyse_a_chaud_css_ct" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="analyse_a_chaud_commentaire" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pourquoi_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pourquoi_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pourquoi_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pourquoi_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pourquoi_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="bras" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="chevilles" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="colonne" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="cou" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="coude" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="cos" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="epaule" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="genou" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="jambes" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="mains" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="oeil" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="pieds" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="poignet" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="tete" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="torse" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="siege_lesions_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="fiche_suivi_sante_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="categorie_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="equipement_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_rapport_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="nature_accident_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="origine_lesions_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210809123042-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/rapport.csv"
+                  separator=";"
+                  tableName="rapport">
+            <column name="id" type="numeric"/>
+            <column name="redacteur" type="string"/>
+            <column name="date_de_creation" type="date"/>
+            <column name="uap" type="string"/>
+            <column name="date_et_heure_connaissance_at" type="date"/>
+            <column name="prevenu_comment" type="string"/>
+            <column name="nom_premiere_personne_prevenu" type="string"/>
+            <column name="date_et_heure_prevenu" type="date"/>
+            <column name="is_temoin" type="boolean"/>
+            <column name="commentaire_temoin" type="string"/>
+            <column name="is_tiers_en_cause" type="boolean"/>
+            <column name="commentaire_tiers_en_cause" type="string"/>
+            <column name="is_autre_victime" type="boolean"/>
+            <column name="commentaire_autre_victime" type="string"/>
+            <column name="is_rapport_de_police" type="boolean"/>
+            <column name="commentaire_rapport_de_police" type="string"/>
+            <column name="is_victime_transports" type="boolean"/>
+            <column name="commentaire_victime_transporter" type="string"/>
+            <column name="date_et_heure_moment_accident" type="date"/>
+            <column name="lieu_accident" type="string"/>
+            <column name="is_identifier_du" type="boolean"/>
+            <column name="circonstance_accident" type="string"/>
+            <column name="materiel_en_cause" type="string"/>
+            <column name="remarques" type="string"/>
+            <column name="pilote" type="string"/>
+            <column name="date_et_heure_validation_pilote" type="date"/>
+            <column name="porteur" type="string"/>
+            <column name="date_et_heure_validation_porteur" type="date"/>
+            <column name="hse" type="string"/>
+            <column name="date_et_heure_validation_hse" type="date"/>
+            <column name="is_intervention_8300" type="boolean"/>
+            <column name="is_intervention_infirmiere" type="boolean"/>
+            <column name="commentaire_infirmere" type="string"/>
+            <column name="is_intervention_medecin" type="boolean"/>
+            <column name="commentaire_medecin" type="string"/>
+            <column name="is_interventionsecouriste" type="boolean"/>
+            <column name="commentaire_secouriste" type="string"/>
+            <column name="is_interventionsecouriste_exterieur" type="boolean"/>
+            <column name="retour_au_poste_de_travail" type="boolean"/>
+            <column name="travail_leger_possible" type="string"/>
+            <column name="analyse_a_chaud_infirmiere" type="boolean"/>
+            <column name="analyse_a_chaud_codir" type="boolean"/>
+            <column name="analyse_a_chaud_hse" type="boolean"/>
+            <column name="analyse_a_chaud_nplus_1" type="boolean"/>
+            <column name="analyse_a_chaud_css_ct" type="boolean"/>
+            <column name="analyse_a_chaud_commentaire" type="string"/>
+            <column name="pourquoi_1" type="string"/>
+            <column name="pourquoi_2" type="string"/>
+            <column name="pourquoi_3" type="string"/>
+            <column name="pourquoi_4" type="string"/>
+            <column name="pourquoi_5" type="string"/>
+            <column name="bras" type="boolean"/>
+            <column name="chevilles" type="boolean"/>
+            <column name="colonne" type="boolean"/>
+            <column name="cou" type="boolean"/>
+            <column name="coude" type="boolean"/>
+            <column name="cos" type="boolean"/>
+            <column name="epaule" type="boolean"/>
+            <column name="genou" type="boolean"/>
+            <column name="jambes" type="boolean"/>
+            <column name="mains" type="boolean"/>
+            <column name="oeil" type="boolean"/>
+            <column name="pieds" type="boolean"/>
+            <column name="poignet" type="boolean"/>
+            <column name="tete" type="boolean"/>
+            <column name="torse" type="boolean"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

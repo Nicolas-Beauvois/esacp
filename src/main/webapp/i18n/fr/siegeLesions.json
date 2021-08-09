@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "siegeLesions": {
+      "home": {
+        "title": "SiegeLesions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Siege Lesions",
+        "createOrEditLabel": "Créer ou éditer un Siege Lesions",
+        "notFound": "Aucun Siege Lesions trouvé"
+      },
+      "created": "Un nouveau Siege Lesions a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Siege Lesions avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Siege Lesions avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Siege Lesions {{ id }} ?"
+      },
+      "detail": {
+        "title": "Siege Lesions"
+      },
+      "id": "ID",
+      "typeSiegeDeLesions": "Type Siege De Lesions",
+      "rapport": "Rapport"
+    }
+  }
+}

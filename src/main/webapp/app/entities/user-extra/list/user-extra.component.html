@@ -1,0 +1,174 @@
+<div>
+  <h2 id="page-heading" data-cy="UserExtraHeading">
+    <span jhiTranslate="esacpApp.userExtra.home.title">User Extras</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="esacpApp.userExtra.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-user-extra"
+        [routerLink]="['/user-extra/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="esacpApp.userExtra.home.createLabel"> Create a new User Extra </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="userExtras?.length === 0">
+    <span jhiTranslate="esacpApp.userExtra.home.notFound">No userExtras found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="userExtras && userExtras.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="matricule">
+            <span jhiTranslate="esacpApp.userExtra.matricule">Matricule</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateDeNaissance">
+            <span jhiTranslate="esacpApp.userExtra.dateDeNaissance">Date De Naissance</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isRedacteur">
+            <span jhiTranslate="esacpApp.userExtra.isRedacteur">Is Redacteur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isPilote">
+            <span jhiTranslate="esacpApp.userExtra.isPilote">Is Pilote</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isPorteur">
+            <span jhiTranslate="esacpApp.userExtra.isPorteur">Is Porteur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isCodir">
+            <span jhiTranslate="esacpApp.userExtra.isCodir">Is Codir</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isHse"><span jhiTranslate="esacpApp.userExtra.isHse">Is Hse</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="isValidateurHse">
+            <span jhiTranslate="esacpApp.userExtra.isValidateurHse">Is Validateur Hse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="user.id"><span jhiTranslate="esacpApp.userExtra.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="statut.statut">
+            <span jhiTranslate="esacpApp.userExtra.statut">Statut</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sexe.sexe">
+            <span jhiTranslate="esacpApp.userExtra.sexe">Sexe</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="departement.departement">
+            <span jhiTranslate="esacpApp.userExtra.departement">Departement</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="contrat.contrat">
+            <span jhiTranslate="esacpApp.userExtra.contrat">Contrat</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="site.site">
+            <span jhiTranslate="esacpApp.userExtra.site">Site</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="csp.csp"><span jhiTranslate="esacpApp.userExtra.csp">Csp</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userExtra of userExtras; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/user-extra', userExtra.id, 'view']">{{ userExtra.id }}</a>
+          </td>
+          <td>{{ userExtra.matricule }}</td>
+          <td>{{ userExtra.dateDeNaissance | formatMediumDate }}</td>
+          <td>{{ userExtra.isRedacteur }}</td>
+          <td>{{ userExtra.isPilote }}</td>
+          <td>{{ userExtra.isPorteur }}</td>
+          <td>{{ userExtra.isCodir }}</td>
+          <td>{{ userExtra.isHse }}</td>
+          <td>{{ userExtra.isValidateurHse }}</td>
+          <td>
+            {{ userExtra.user?.id }}
+          </td>
+          <td>
+            <div *ngIf="userExtra.statut">
+              <a [routerLink]="['/statut', userExtra.statut?.id, 'view']">{{ userExtra.statut?.statut }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="userExtra.sexe">
+              <a [routerLink]="['/sexe', userExtra.sexe?.id, 'view']">{{ userExtra.sexe?.sexe }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="userExtra.departement">
+              <a [routerLink]="['/departement', userExtra.departement?.id, 'view']">{{ userExtra.departement?.departement }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="userExtra.contrat">
+              <a [routerLink]="['/contrat', userExtra.contrat?.id, 'view']">{{ userExtra.contrat?.contrat }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="userExtra.site">
+              <a [routerLink]="['/site', userExtra.site?.id, 'view']">{{ userExtra.site?.site }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="userExtra.csp">
+              <a [routerLink]="['/csp', userExtra.csp?.id, 'view']">{{ userExtra.csp?.csp }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/user-extra', userExtra.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/user-extra', userExtra.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(userExtra)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="userExtras && userExtras.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

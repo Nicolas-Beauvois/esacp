@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="correctPrevent">
+      <h2 data-cy="correctPreventDetailsHeading"><span jhiTranslate="esacpApp.correctPrevent.detail.title">Correct Prevent</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ correctPrevent.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.correctPrevent.correctPrevent">Correct Prevent</span></dt>
+        <dd>
+          <span>{{ correctPrevent.correctPrevent }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/correct-prevent', correctPrevent.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

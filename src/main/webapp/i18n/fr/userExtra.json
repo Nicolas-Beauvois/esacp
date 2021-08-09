@@ -1,0 +1,38 @@
+{
+  "esacpApp": {
+    "userExtra": {
+      "home": {
+        "title": "UserExtras",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau User Extra",
+        "createOrEditLabel": "Créer ou éditer un User Extra",
+        "notFound": "Aucun User Extra trouvé"
+      },
+      "created": "Un nouveau User Extra a été créé avec l'identifiant {{ param }}",
+      "updated": "Le User Extra avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le User Extra avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le User Extra {{ id }} ?"
+      },
+      "detail": {
+        "title": "User Extra"
+      },
+      "id": "ID",
+      "matricule": "Matricule",
+      "dateDeNaissance": "Date De Naissance",
+      "isRedacteur": "Is Redacteur",
+      "isPilote": "Is Pilote",
+      "isPorteur": "Is Porteur",
+      "isCodir": "Is Codir",
+      "isHse": "Is Hse",
+      "isValidateurHse": "Is Validateur Hse",
+      "user": "User",
+      "statut": "Statut",
+      "sexe": "Sexe",
+      "departement": "Departement",
+      "contrat": "Contrat",
+      "site": "Site",
+      "csp": "Csp"
+    }
+  }
+}

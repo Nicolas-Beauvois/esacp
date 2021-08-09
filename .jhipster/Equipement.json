@@ -1,0 +1,27 @@
+{
+  "name": "Equipement",
+  "fields": [
+    {
+      "fieldName": "equipement",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "rapport",
+      "otherEntityRelationshipName": "equipement",
+      "relationshipName": "rapport"
+    }
+  ],
+  "entityTableName": "equipement",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123034"
+}

@@ -1,0 +1,44 @@
+{
+  "esacpApp": {
+    "actions": {
+      "home": {
+        "title": "Actions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Actions",
+        "createOrEditLabel": "Créer ou éditer un Actions",
+        "notFound": "Aucun Actions trouvé"
+      },
+      "created": "Un nouveau Actions a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Actions avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Actions avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Actions {{ id }} ?"
+      },
+      "detail": {
+        "title": "Actions"
+      },
+      "id": "ID",
+      "redacteur": "Redacteur",
+      "isActionImmediate": "Is Action Immediate",
+      "dateEtHeureCreation": "Date Et Heure Creation",
+      "titre": "Titre",
+      "descriptionAction": "Description Action",
+      "descriptionReponse": "Description Reponse",
+      "delai": "Delai",
+      "etat": "Etat",
+      "pilote": "Pilote",
+      "dateEtHeureValidationPilote": "Date Et Heure Validation Pilote",
+      "porteur": "Porteur",
+      "dateEtHeureValidationPorteur": "Date Et Heure Validation Porteur",
+      "hse": "Hse",
+      "dateEtHeureValidationHse": "Date Et Heure Validation Hse",
+      "rapport": "Rapport",
+      "correctPrevent": "Correct Prevent",
+      "priorite": "Priorite",
+      "etapeValidation": "Etape Validation",
+      "typeAction": "Type Action",
+      "criticite": "Criticite",
+      "pj": "Pj"
+    }
+  }
+}

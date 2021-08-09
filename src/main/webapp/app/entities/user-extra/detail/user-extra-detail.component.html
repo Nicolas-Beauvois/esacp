@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="userExtra">
+      <h2 data-cy="userExtraDetailsHeading"><span jhiTranslate="esacpApp.userExtra.detail.title">User Extra</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ userExtra.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.matricule">Matricule</span></dt>
+        <dd>
+          <span>{{ userExtra.matricule }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.dateDeNaissance">Date De Naissance</span></dt>
+        <dd>
+          <span>{{ userExtra.dateDeNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.isRedacteur">Is Redacteur</span></dt>
+        <dd>
+          <span>{{ userExtra.isRedacteur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.isPilote">Is Pilote</span></dt>
+        <dd>
+          <span>{{ userExtra.isPilote }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.isPorteur">Is Porteur</span></dt>
+        <dd>
+          <span>{{ userExtra.isPorteur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.isCodir">Is Codir</span></dt>
+        <dd>
+          <span>{{ userExtra.isCodir }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.isHse">Is Hse</span></dt>
+        <dd>
+          <span>{{ userExtra.isHse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.isValidateurHse">Is Validateur Hse</span></dt>
+        <dd>
+          <span>{{ userExtra.isValidateurHse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.user">User</span></dt>
+        <dd>
+          <span>{{ userExtra.user?.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.statut">Statut</span></dt>
+        <dd>
+          <div *ngIf="userExtra.statut">
+            <a [routerLink]="['/statut', userExtra.statut?.id, 'view']">{{ userExtra.statut?.statut }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.sexe">Sexe</span></dt>
+        <dd>
+          <div *ngIf="userExtra.sexe">
+            <a [routerLink]="['/sexe', userExtra.sexe?.id, 'view']">{{ userExtra.sexe?.sexe }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.departement">Departement</span></dt>
+        <dd>
+          <div *ngIf="userExtra.departement">
+            <a [routerLink]="['/departement', userExtra.departement?.id, 'view']">{{ userExtra.departement?.departement }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.contrat">Contrat</span></dt>
+        <dd>
+          <div *ngIf="userExtra.contrat">
+            <a [routerLink]="['/contrat', userExtra.contrat?.id, 'view']">{{ userExtra.contrat?.contrat }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.site">Site</span></dt>
+        <dd>
+          <div *ngIf="userExtra.site">
+            <a [routerLink]="['/site', userExtra.site?.id, 'view']">{{ userExtra.site?.site }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.userExtra.csp">Csp</span></dt>
+        <dd>
+          <div *ngIf="userExtra.csp">
+            <a [routerLink]="['/csp', userExtra.csp?.id, 'view']">{{ userExtra.csp?.csp }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/user-extra', userExtra.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

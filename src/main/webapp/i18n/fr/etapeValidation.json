@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "etapeValidation": {
+      "home": {
+        "title": "EtapeValidations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Etape Validation",
+        "createOrEditLabel": "Créer ou éditer un Etape Validation",
+        "notFound": "Aucun Etape Validation trouvé"
+      },
+      "created": "Un nouveau Etape Validation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etape Validation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etape Validation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etape Validation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etape Validation"
+      },
+      "id": "ID",
+      "etapeValidation": "Etape Validation",
+      "actions": "Actions"
+    }
+  }
+}

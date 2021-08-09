@@ -1,0 +1,27 @@
+{
+  "name": "Contrat",
+  "fields": [
+    {
+      "fieldName": "contrat",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "userExtra",
+      "otherEntityRelationshipName": "contrat",
+      "relationshipName": "userExtra"
+    }
+  ],
+  "entityTableName": "contrat",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123032"
+}

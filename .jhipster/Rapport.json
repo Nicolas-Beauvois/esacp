@@ -1,0 +1,344 @@
+{
+  "name": "Rapport",
+  "fields": [
+    {
+      "fieldName": "redacteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDeCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "uap",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureConnaissanceAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "prevenuComment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomPremierePersonnePrevenu",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeurePrevenu",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isTemoin",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireTemoin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isTiersEnCause",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireTiersEnCause",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isAutreVictime",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireAutreVictime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isRapportDePolice",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireRapportDePolice",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isVictimeTransports",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireVictimeTransporter",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureMomentAccident",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "lieuAccident",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isIdentifierDu",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "circonstanceAccident",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "materielEnCause",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remarques",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pilote",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureValidationPilote",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "porteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureValidationPorteur",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "hse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureValidationHse",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isIntervention8300",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isInterventionInfirmiere",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireInfirmere",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isInterventionMedecin",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireMedecin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isInterventionsecouriste",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "commentaireSecouriste",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isInterventionsecouristeExterieur",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "retourAuPosteDeTravail",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "travailLegerPossible",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "analyseAChaudInfirmiere",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "analyseAChaudCodir",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "analyseAChaudHse",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "analyseAChaudNplus1",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "analyseAChaudCssCt",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "analyseAChaudCommentaire",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pourquoi1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pourquoi2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pourquoi3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pourquoi4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pourquoi5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bras",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "chevilles",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "colonne",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "cou",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "coude",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "cos",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "epaule",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "genou",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "jambes",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "mains",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "oeil",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "pieds",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "poignet",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "tete",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "torse",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "actions",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "actions"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "siegeLesions",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "siegeLesions"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ficheSuiviSante",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "ficheSuiviSante"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "type",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "type",
+      "otherEntityField": "origine"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "categorie",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "categorie",
+      "otherEntityField": "categorie"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipement",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "equipement",
+      "otherEntityField": "equipement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeRapport",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "typeRapport",
+      "otherEntityField": "typeRapport"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "natureAccident",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "natureAccident",
+      "otherEntityField": "typeNatureAccident"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "origineLesions",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "origineLesions",
+      "otherEntityField": "origineLesions"
+    }
+  ],
+  "entityTableName": "rapport",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123042"
+}

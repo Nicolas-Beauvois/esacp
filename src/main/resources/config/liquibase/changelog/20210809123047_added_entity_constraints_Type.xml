@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Type.
+    -->
+    <changeSet id="20210809123047-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="repartition_id"
+                                 baseTableName="type"
+                                 constraintName="fk_type__repartition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="repartition"/>
+    </changeSet>
+</databaseChangeLog>

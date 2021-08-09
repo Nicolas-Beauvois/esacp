@@ -1,0 +1,27 @@
+{
+  "name": "TypeAction",
+  "fields": [
+    {
+      "fieldName": "typeAction",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "actions",
+      "otherEntityRelationshipName": "typeAction",
+      "relationshipName": "actions"
+    }
+  ],
+  "entityTableName": "type_action",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123050"
+}

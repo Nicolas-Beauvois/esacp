@@ -1,0 +1,31 @@
+{
+  "name": "Priorite",
+  "fields": [
+    {
+      "fieldName": "priorite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accrPriorite",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "actions",
+      "otherEntityRelationshipName": "priorite",
+      "relationshipName": "actions"
+    }
+  ],
+  "entityTableName": "priorite",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123041"
+}

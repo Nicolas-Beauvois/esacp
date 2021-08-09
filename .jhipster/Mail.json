@@ -1,0 +1,24 @@
+{
+  "name": "Mail",
+  "fields": [
+    {
+      "fieldName": "typeMail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "msgMail",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "mail",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123037"
+}
