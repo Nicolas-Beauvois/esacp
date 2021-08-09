@@ -1,0 +1,27 @@
+{
+  "name": "EtapeValidation",
+  "fields": [
+    {
+      "fieldName": "etapeValidation",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "actions",
+      "otherEntityRelationshipName": "etapeValidation",
+      "relationshipName": "actions"
+    }
+  ],
+  "entityTableName": "etape_validation",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123035"
+}

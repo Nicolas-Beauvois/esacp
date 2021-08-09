@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "csp": {
+      "home": {
+        "title": "Csps",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Csp",
+        "createOrEditLabel": "Créer ou éditer un Csp",
+        "notFound": "Aucun Csp trouvé"
+      },
+      "created": "Un nouveau Csp a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Csp avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Csp avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Csp {{ id }} ?"
+      },
+      "detail": {
+        "title": "Csp"
+      },
+      "id": "ID",
+      "csp": "Csp",
+      "userExtra": "User Extra"
+    }
+  }
+}

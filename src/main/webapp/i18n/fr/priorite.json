@@ -1,0 +1,26 @@
+{
+  "esacpApp": {
+    "priorite": {
+      "home": {
+        "title": "Priorites",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Priorite",
+        "createOrEditLabel": "Créer ou éditer un Priorite",
+        "notFound": "Aucun Priorite trouvé"
+      },
+      "created": "Un nouveau Priorite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Priorite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Priorite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Priorite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Priorite"
+      },
+      "id": "ID",
+      "priorite": "Priorite",
+      "accrPriorite": "Accr Priorite",
+      "actions": "Actions"
+    }
+  }
+}

@@ -1,0 +1,340 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rapport">
+      <h2 data-cy="rapportDetailsHeading"><span jhiTranslate="esacpApp.rapport.detail.title">Rapport</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ rapport.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.redacteur">Redacteur</span></dt>
+        <dd>
+          <span>{{ rapport.redacteur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.dateDeCreation">Date De Creation</span></dt>
+        <dd>
+          <span>{{ rapport.dateDeCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.uap">Uap</span></dt>
+        <dd>
+          <span>{{ rapport.uap }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.dateEtHeureConnaissanceAt">Date Et Heure Connaissance At</span></dt>
+        <dd>
+          <span>{{ rapport.dateEtHeureConnaissanceAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.prevenuComment">Prevenu Comment</span></dt>
+        <dd>
+          <span>{{ rapport.prevenuComment }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.nomPremierePersonnePrevenu">Nom Premiere Personne Prevenu</span></dt>
+        <dd>
+          <span>{{ rapport.nomPremierePersonnePrevenu }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.dateEtHeurePrevenu">Date Et Heure Prevenu</span></dt>
+        <dd>
+          <span>{{ rapport.dateEtHeurePrevenu | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isTemoin">Is Temoin</span></dt>
+        <dd>
+          <span>{{ rapport.isTemoin }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireTemoin">Commentaire Temoin</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireTemoin }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isTiersEnCause">Is Tiers En Cause</span></dt>
+        <dd>
+          <span>{{ rapport.isTiersEnCause }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireTiersEnCause">Commentaire Tiers En Cause</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireTiersEnCause }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isAutreVictime">Is Autre Victime</span></dt>
+        <dd>
+          <span>{{ rapport.isAutreVictime }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireAutreVictime">Commentaire Autre Victime</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireAutreVictime }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isRapportDePolice">Is Rapport De Police</span></dt>
+        <dd>
+          <span>{{ rapport.isRapportDePolice }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireRapportDePolice">Commentaire Rapport De Police</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireRapportDePolice }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isVictimeTransports">Is Victime Transports</span></dt>
+        <dd>
+          <span>{{ rapport.isVictimeTransports }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireVictimeTransporter">Commentaire Victime Transporter</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireVictimeTransporter }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.dateEtHeureMomentAccident">Date Et Heure Moment Accident</span></dt>
+        <dd>
+          <span>{{ rapport.dateEtHeureMomentAccident | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.lieuAccident">Lieu Accident</span></dt>
+        <dd>
+          <span>{{ rapport.lieuAccident }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isIdentifierDu">Is Identifier Du</span></dt>
+        <dd>
+          <span>{{ rapport.isIdentifierDu }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.circonstanceAccident">Circonstance Accident</span></dt>
+        <dd>
+          <span>{{ rapport.circonstanceAccident }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.materielEnCause">Materiel En Cause</span></dt>
+        <dd>
+          <span>{{ rapport.materielEnCause }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.remarques">Remarques</span></dt>
+        <dd>
+          <span>{{ rapport.remarques }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.pilote">Pilote</span></dt>
+        <dd>
+          <span>{{ rapport.pilote }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.dateEtHeureValidationPilote">Date Et Heure Validation Pilote</span></dt>
+        <dd>
+          <span>{{ rapport.dateEtHeureValidationPilote | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.porteur">Porteur</span></dt>
+        <dd>
+          <span>{{ rapport.porteur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.dateEtHeureValidationPorteur">Date Et Heure Validation Porteur</span></dt>
+        <dd>
+          <span>{{ rapport.dateEtHeureValidationPorteur | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.hse">Hse</span></dt>
+        <dd>
+          <span>{{ rapport.hse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.dateEtHeureValidationHse">Date Et Heure Validation Hse</span></dt>
+        <dd>
+          <span>{{ rapport.dateEtHeureValidationHse | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isIntervention8300">Is Intervention 8300</span></dt>
+        <dd>
+          <span>{{ rapport.isIntervention8300 }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isInterventionInfirmiere">Is Intervention Infirmiere</span></dt>
+        <dd>
+          <span>{{ rapport.isInterventionInfirmiere }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireInfirmere">Commentaire Infirmere</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireInfirmere }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isInterventionMedecin">Is Intervention Medecin</span></dt>
+        <dd>
+          <span>{{ rapport.isInterventionMedecin }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireMedecin">Commentaire Medecin</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireMedecin }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isInterventionsecouriste">Is Interventionsecouriste</span></dt>
+        <dd>
+          <span>{{ rapport.isInterventionsecouriste }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.commentaireSecouriste">Commentaire Secouriste</span></dt>
+        <dd>
+          <span>{{ rapport.commentaireSecouriste }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.isInterventionsecouristeExterieur">Is Interventionsecouriste Exterieur</span></dt>
+        <dd>
+          <span>{{ rapport.isInterventionsecouristeExterieur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.retourAuPosteDeTravail">Retour Au Poste De Travail</span></dt>
+        <dd>
+          <span>{{ rapport.retourAuPosteDeTravail }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.travailLegerPossible">Travail Leger Possible</span></dt>
+        <dd>
+          <span>{{ rapport.travailLegerPossible }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.analyseAChaudInfirmiere">Analyse A Chaud Infirmiere</span></dt>
+        <dd>
+          <span>{{ rapport.analyseAChaudInfirmiere }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.analyseAChaudCodir">Analyse A Chaud Codir</span></dt>
+        <dd>
+          <span>{{ rapport.analyseAChaudCodir }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.analyseAChaudHse">Analyse A Chaud Hse</span></dt>
+        <dd>
+          <span>{{ rapport.analyseAChaudHse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.analyseAChaudNplus1">Analyse A Chaud Nplus 1</span></dt>
+        <dd>
+          <span>{{ rapport.analyseAChaudNplus1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.analyseAChaudCssCt">Analyse A Chaud Css Ct</span></dt>
+        <dd>
+          <span>{{ rapport.analyseAChaudCssCt }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.analyseAChaudCommentaire">Analyse A Chaud Commentaire</span></dt>
+        <dd>
+          <span>{{ rapport.analyseAChaudCommentaire }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.pourquoi1">Pourquoi 1</span></dt>
+        <dd>
+          <span>{{ rapport.pourquoi1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.pourquoi2">Pourquoi 2</span></dt>
+        <dd>
+          <span>{{ rapport.pourquoi2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.pourquoi3">Pourquoi 3</span></dt>
+        <dd>
+          <span>{{ rapport.pourquoi3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.pourquoi4">Pourquoi 4</span></dt>
+        <dd>
+          <span>{{ rapport.pourquoi4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.pourquoi5">Pourquoi 5</span></dt>
+        <dd>
+          <span>{{ rapport.pourquoi5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.bras">Bras</span></dt>
+        <dd>
+          <span>{{ rapport.bras }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.chevilles">Chevilles</span></dt>
+        <dd>
+          <span>{{ rapport.chevilles }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.colonne">Colonne</span></dt>
+        <dd>
+          <span>{{ rapport.colonne }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.cou">Cou</span></dt>
+        <dd>
+          <span>{{ rapport.cou }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.coude">Coude</span></dt>
+        <dd>
+          <span>{{ rapport.coude }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.cos">Cos</span></dt>
+        <dd>
+          <span>{{ rapport.cos }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.epaule">Epaule</span></dt>
+        <dd>
+          <span>{{ rapport.epaule }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.genou">Genou</span></dt>
+        <dd>
+          <span>{{ rapport.genou }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.jambes">Jambes</span></dt>
+        <dd>
+          <span>{{ rapport.jambes }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.mains">Mains</span></dt>
+        <dd>
+          <span>{{ rapport.mains }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.oeil">Oeil</span></dt>
+        <dd>
+          <span>{{ rapport.oeil }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.pieds">Pieds</span></dt>
+        <dd>
+          <span>{{ rapport.pieds }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.poignet">Poignet</span></dt>
+        <dd>
+          <span>{{ rapport.poignet }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.tete">Tete</span></dt>
+        <dd>
+          <span>{{ rapport.tete }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.torse">Torse</span></dt>
+        <dd>
+          <span>{{ rapport.torse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.user">User</span></dt>
+        <dd>
+          <span>{{ rapport.user?.login }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.siegeLesions">Siege Lesions</span></dt>
+        <dd>
+          <div *ngIf="rapport.siegeLesions">
+            <a [routerLink]="['/siege-lesions', rapport.siegeLesions?.id, 'view']">{{ rapport.siegeLesions?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.ficheSuiviSante">Fiche Suivi Sante</span></dt>
+        <dd>
+          <div *ngIf="rapport.ficheSuiviSante">
+            <a [routerLink]="['/fiche-suivi-sante', rapport.ficheSuiviSante?.id, 'view']">{{ rapport.ficheSuiviSante?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.type">Type</span></dt>
+        <dd>
+          <div *ngIf="rapport.type">
+            <a [routerLink]="['/type', rapport.type?.id, 'view']">{{ rapport.type?.origine }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.categorie">Categorie</span></dt>
+        <dd>
+          <div *ngIf="rapport.categorie">
+            <a [routerLink]="['/categorie', rapport.categorie?.id, 'view']">{{ rapport.categorie?.categorie }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.equipement">Equipement</span></dt>
+        <dd>
+          <div *ngIf="rapport.equipement">
+            <a [routerLink]="['/equipement', rapport.equipement?.id, 'view']">{{ rapport.equipement?.equipement }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.typeRapport">Type Rapport</span></dt>
+        <dd>
+          <div *ngIf="rapport.typeRapport">
+            <a [routerLink]="['/type-rapport', rapport.typeRapport?.id, 'view']">{{ rapport.typeRapport?.typeRapport }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.natureAccident">Nature Accident</span></dt>
+        <dd>
+          <div *ngIf="rapport.natureAccident">
+            <a [routerLink]="['/nature-accident', rapport.natureAccident?.id, 'view']">{{ rapport.natureAccident?.typeNatureAccident }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.rapport.origineLesions">Origine Lesions</span></dt>
+        <dd>
+          <div *ngIf="rapport.origineLesions">
+            <a [routerLink]="['/origine-lesions', rapport.origineLesions?.id, 'view']">{{ rapport.origineLesions?.origineLesions }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/rapport', rapport.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

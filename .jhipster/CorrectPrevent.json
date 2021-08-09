@@ -1,0 +1,27 @@
+{
+  "name": "CorrectPrevent",
+  "fields": [
+    {
+      "fieldName": "correctPrevent",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "actions",
+      "otherEntityRelationshipName": "correctPrevent",
+      "relationshipName": "actions"
+    }
+  ],
+  "entityTableName": "correct_prevent",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123027"
+}

@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ficheSuiviSante">
+      <h2 data-cy="ficheSuiviSanteDetailsHeading"><span jhiTranslate="esacpApp.ficheSuiviSante.detail.title">Fiche Suivi Sante</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.suiviIndividuel">Suivi Individuel</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.suiviIndividuel }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.medecinDuTravail">Medecin Du Travail</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.medecinDuTravail }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.dateDeCreation">Date De Creation</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.dateDeCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.datededebutAT">Datededebut AT</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.datededebutAT | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.datedefinAT">Datedefin AT</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.datedefinAT | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.propositionMedecinDuTravail">Proposition Medecin Du Travail</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.propositionMedecinDuTravail }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.aRevoirLe">A Revoir Le</span></dt>
+        <dd>
+          <span>{{ ficheSuiviSante.aRevoirLe | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.ficheSuiviSante.typeAt">Type At</span></dt>
+        <dd>
+          <div *ngIf="ficheSuiviSante.typeAt">
+            <a [routerLink]="['/type-at', ficheSuiviSante.typeAt?.id, 'view']">{{ ficheSuiviSante.typeAt?.typeAt }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fiche-suivi-sante', ficheSuiviSante.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

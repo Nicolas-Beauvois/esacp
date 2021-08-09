@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Rapport.
+    -->
+    <changeSet id="20210809123042-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="siege_lesions_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__siege_lesions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="siege_lesions"/>
+
+        <addForeignKeyConstraint baseColumnNames="fiche_suivi_sante_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__fiche_suivi_sante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fiche_suivi_sante"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type"/>
+
+        <addForeignKeyConstraint baseColumnNames="categorie_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__categorie_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="categorie"/>
+
+        <addForeignKeyConstraint baseColumnNames="equipement_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__equipement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="equipement"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_rapport_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__type_rapport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_rapport"/>
+
+        <addForeignKeyConstraint baseColumnNames="nature_accident_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__nature_accident_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nature_accident"/>
+
+        <addForeignKeyConstraint baseColumnNames="origine_lesions_id"
+                                 baseTableName="rapport"
+                                 constraintName="fk_rapport__origine_lesions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="origine_lesions"/>
+    </changeSet>
+</databaseChangeLog>

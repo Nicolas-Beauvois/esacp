@@ -1,0 +1,31 @@
+{
+  "name": "Criticite",
+  "fields": [
+    {
+      "fieldName": "criticite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "criticiteAcronyme",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "actions",
+      "otherEntityRelationshipName": "criticite",
+      "relationshipName": "actions"
+    }
+  ],
+  "entityTableName": "criticite",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123033"
+}

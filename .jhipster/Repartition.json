@@ -1,0 +1,27 @@
+{
+  "name": "Repartition",
+  "fields": [
+    {
+      "fieldName": "repartition",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "type",
+      "otherEntityRelationshipName": "repartition",
+      "relationshipName": "type"
+    }
+  ],
+  "entityTableName": "repartition",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123048"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "SiegeLesions",
+  "fields": [
+    {
+      "fieldName": "typeSiegeDeLesions",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "rapport",
+      "otherEntityRelationshipName": "siegeLesions",
+      "relationshipName": "rapport"
+    }
+  ],
+  "entityTableName": "siege_lesions",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123044"
+}

@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "origineLesions": {
+      "home": {
+        "title": "OrigineLesions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Origine Lesions",
+        "createOrEditLabel": "Créer ou éditer un Origine Lesions",
+        "notFound": "Aucun Origine Lesions trouvé"
+      },
+      "created": "Un nouveau Origine Lesions a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Origine Lesions avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Origine Lesions avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Origine Lesions {{ id }} ?"
+      },
+      "detail": {
+        "title": "Origine Lesions"
+      },
+      "id": "ID",
+      "origineLesions": "Origine Lesions",
+      "rapport": "Rapport"
+    }
+  }
+}

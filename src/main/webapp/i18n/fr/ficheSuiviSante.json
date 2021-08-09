@@ -1,0 +1,32 @@
+{
+  "esacpApp": {
+    "ficheSuiviSante": {
+      "home": {
+        "title": "FicheSuiviSantes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fiche Suivi Sante",
+        "createOrEditLabel": "Créer ou éditer un Fiche Suivi Sante",
+        "notFound": "Aucun Fiche Suivi Sante trouvé"
+      },
+      "created": "Un nouveau Fiche Suivi Sante a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fiche Suivi Sante avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fiche Suivi Sante avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Fiche Suivi Sante {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fiche Suivi Sante"
+      },
+      "id": "ID",
+      "suiviIndividuel": "Suivi Individuel",
+      "medecinDuTravail": "Medecin Du Travail",
+      "dateDeCreation": "Date De Creation",
+      "datededebutAT": "Datededebut AT",
+      "datedefinAT": "Datedefin AT",
+      "propositionMedecinDuTravail": "Proposition Medecin Du Travail",
+      "aRevoirLe": "A Revoir Le",
+      "rapport": "Rapport",
+      "typeAt": "Type At"
+    }
+  }
+}

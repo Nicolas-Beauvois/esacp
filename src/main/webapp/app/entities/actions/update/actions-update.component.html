@@ -1,0 +1,340 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-actions-heading" data-cy="ActionsCreateUpdateHeading" jhiTranslate="esacpApp.actions.home.createOrEditLabel">
+        Create or edit a Actions
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.redacteur" for="field_redacteur">Redacteur</label>
+          <input type="text" class="form-control" name="redacteur" id="field_redacteur" data-cy="redacteur" formControlName="redacteur" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.isActionImmediate" for="field_isActionImmediate"
+            >Is Action Immediate</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isActionImmediate"
+            id="field_isActionImmediate"
+            data-cy="isActionImmediate"
+            formControlName="isActionImmediate"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.dateEtHeureCreation" for="field_dateEtHeureCreation"
+            >Date Et Heure Creation</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureCreation"
+              data-cy="dateEtHeureCreation"
+              type="text"
+              class="form-control"
+              name="dateEtHeureCreation"
+              ngbDatepicker
+              #dateEtHeureCreationDp="ngbDatepicker"
+              formControlName="dateEtHeureCreation"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureCreationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.titre" for="field_titre">Titre</label>
+          <input type="text" class="form-control" name="titre" id="field_titre" data-cy="titre" formControlName="titre" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.descriptionAction" for="field_descriptionAction"
+            >Description Action</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descriptionAction"
+            id="field_descriptionAction"
+            data-cy="descriptionAction"
+            formControlName="descriptionAction"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.descriptionReponse" for="field_descriptionReponse"
+            >Description Reponse</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descriptionReponse"
+            id="field_descriptionReponse"
+            data-cy="descriptionReponse"
+            formControlName="descriptionReponse"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.delai" for="field_delai">Delai</label>
+          <div class="input-group">
+            <input
+              id="field_delai"
+              data-cy="delai"
+              type="text"
+              class="form-control"
+              name="delai"
+              ngbDatepicker
+              #delaiDp="ngbDatepicker"
+              formControlName="delai"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="delaiDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.etat" for="field_etat">Etat</label>
+          <input type="text" class="form-control" name="etat" id="field_etat" data-cy="etat" formControlName="etat" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.pilote" for="field_pilote">Pilote</label>
+          <input type="text" class="form-control" name="pilote" id="field_pilote" data-cy="pilote" formControlName="pilote" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.actions.dateEtHeureValidationPilote"
+            for="field_dateEtHeureValidationPilote"
+            >Date Et Heure Validation Pilote</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureValidationPilote"
+              data-cy="dateEtHeureValidationPilote"
+              type="text"
+              class="form-control"
+              name="dateEtHeureValidationPilote"
+              ngbDatepicker
+              #dateEtHeureValidationPiloteDp="ngbDatepicker"
+              formControlName="dateEtHeureValidationPilote"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureValidationPiloteDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.porteur" for="field_porteur">Porteur</label>
+          <input type="text" class="form-control" name="porteur" id="field_porteur" data-cy="porteur" formControlName="porteur" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.actions.dateEtHeureValidationPorteur"
+            for="field_dateEtHeureValidationPorteur"
+            >Date Et Heure Validation Porteur</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureValidationPorteur"
+              data-cy="dateEtHeureValidationPorteur"
+              type="text"
+              class="form-control"
+              name="dateEtHeureValidationPorteur"
+              ngbDatepicker
+              #dateEtHeureValidationPorteurDp="ngbDatepicker"
+              formControlName="dateEtHeureValidationPorteur"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureValidationPorteurDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.hse" for="field_hse">Hse</label>
+          <input type="text" class="form-control" name="hse" id="field_hse" data-cy="hse" formControlName="hse" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.dateEtHeureValidationHse" for="field_dateEtHeureValidationHse"
+            >Date Et Heure Validation Hse</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureValidationHse"
+              data-cy="dateEtHeureValidationHse"
+              type="text"
+              class="form-control"
+              name="dateEtHeureValidationHse"
+              ngbDatepicker
+              #dateEtHeureValidationHseDp="ngbDatepicker"
+              formControlName="dateEtHeureValidationHse"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureValidationHseDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.rapport" for="field_rapport">Rapport</label>
+          <select class="form-control" id="field_rapport" data-cy="rapport" name="rapport" formControlName="rapport">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="rapportOption.id === editForm.get('rapport')!.value?.id ? editForm.get('rapport')!.value : rapportOption"
+              *ngFor="let rapportOption of rapportsSharedCollection; trackBy: trackRapportById"
+            >
+              {{ rapportOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.correctPrevent" for="field_correctPrevent"
+            >Correct Prevent</label
+          >
+          <select
+            class="form-control"
+            id="field_correctPrevent"
+            data-cy="correctPrevent"
+            name="correctPrevent"
+            formControlName="correctPrevent"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                correctPreventOption.id === editForm.get('correctPrevent')!.value?.id
+                  ? editForm.get('correctPrevent')!.value
+                  : correctPreventOption
+              "
+              *ngFor="let correctPreventOption of correctPreventsSharedCollection; trackBy: trackCorrectPreventById"
+            >
+              {{ correctPreventOption.correctPrevent }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.priorite" for="field_priorite">Priorite</label>
+          <select class="form-control" id="field_priorite" data-cy="priorite" name="priorite" formControlName="priorite">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="prioriteOption.id === editForm.get('priorite')!.value?.id ? editForm.get('priorite')!.value : prioriteOption"
+              *ngFor="let prioriteOption of prioritesSharedCollection; trackBy: trackPrioriteById"
+            >
+              {{ prioriteOption.priorite }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.etapeValidation" for="field_etapeValidation"
+            >Etape Validation</label
+          >
+          <select
+            class="form-control"
+            id="field_etapeValidation"
+            data-cy="etapeValidation"
+            name="etapeValidation"
+            formControlName="etapeValidation"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                etapeValidationOption.id === editForm.get('etapeValidation')!.value?.id
+                  ? editForm.get('etapeValidation')!.value
+                  : etapeValidationOption
+              "
+              *ngFor="let etapeValidationOption of etapeValidationsSharedCollection; trackBy: trackEtapeValidationById"
+            >
+              {{ etapeValidationOption.etapeValidation }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.typeAction" for="field_typeAction">Type Action</label>
+          <select class="form-control" id="field_typeAction" data-cy="typeAction" name="typeAction" formControlName="typeAction">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                typeActionOption.id === editForm.get('typeAction')!.value?.id ? editForm.get('typeAction')!.value : typeActionOption
+              "
+              *ngFor="let typeActionOption of typeActionsSharedCollection; trackBy: trackTypeActionById"
+            >
+              {{ typeActionOption.typeAction }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.criticite" for="field_criticite">Criticite</label>
+          <select class="form-control" id="field_criticite" data-cy="criticite" name="criticite" formControlName="criticite">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="criticiteOption.id === editForm.get('criticite')!.value?.id ? editForm.get('criticite')!.value : criticiteOption"
+              *ngFor="let criticiteOption of criticitesSharedCollection; trackBy: trackCriticiteById"
+            >
+              {{ criticiteOption.criticite }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.actions.pj" for="field_pj">Pj</label>
+          <select class="form-control" id="field_pj" data-cy="pj" name="pj" formControlName="pj">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="pieceJointesOption.id === editForm.get('pj')!.value?.id ? editForm.get('pj')!.value : pieceJointesOption"
+              *ngFor="let pieceJointesOption of pieceJointesSharedCollection; trackBy: trackPieceJointesById"
+            >
+              {{ pieceJointesOption.pj }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

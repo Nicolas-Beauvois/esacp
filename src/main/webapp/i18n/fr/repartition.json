@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "repartition": {
+      "home": {
+        "title": "Repartitions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Repartition",
+        "createOrEditLabel": "Créer ou éditer un Repartition",
+        "notFound": "Aucun Repartition trouvé"
+      },
+      "created": "Un nouveau Repartition a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Repartition avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Repartition avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Repartition {{ id }} ?"
+      },
+      "detail": {
+        "title": "Repartition"
+      },
+      "id": "ID",
+      "repartition": "Repartition",
+      "type": "Type"
+    }
+  }
+}

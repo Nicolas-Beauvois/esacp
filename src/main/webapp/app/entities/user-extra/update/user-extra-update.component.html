@@ -1,0 +1,201 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-user-extra-heading" data-cy="UserExtraCreateUpdateHeading" jhiTranslate="esacpApp.userExtra.home.createOrEditLabel">
+        Create or edit a User Extra
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.matricule" for="field_matricule">Matricule</label>
+          <input type="text" class="form-control" name="matricule" id="field_matricule" data-cy="matricule" formControlName="matricule" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.dateDeNaissance" for="field_dateDeNaissance"
+            >Date De Naissance</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDeNaissance"
+              data-cy="dateDeNaissance"
+              type="text"
+              class="form-control"
+              name="dateDeNaissance"
+              ngbDatepicker
+              #dateDeNaissanceDp="ngbDatepicker"
+              formControlName="dateDeNaissance"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDeNaissanceDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.isRedacteur" for="field_isRedacteur">Is Redacteur</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isRedacteur"
+            id="field_isRedacteur"
+            data-cy="isRedacteur"
+            formControlName="isRedacteur"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.isPilote" for="field_isPilote">Is Pilote</label>
+          <input type="checkbox" class="form-check" name="isPilote" id="field_isPilote" data-cy="isPilote" formControlName="isPilote" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.isPorteur" for="field_isPorteur">Is Porteur</label>
+          <input type="checkbox" class="form-check" name="isPorteur" id="field_isPorteur" data-cy="isPorteur" formControlName="isPorteur" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.isCodir" for="field_isCodir">Is Codir</label>
+          <input type="checkbox" class="form-check" name="isCodir" id="field_isCodir" data-cy="isCodir" formControlName="isCodir" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.isHse" for="field_isHse">Is Hse</label>
+          <input type="checkbox" class="form-check" name="isHse" id="field_isHse" data-cy="isHse" formControlName="isHse" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.isValidateurHse" for="field_isValidateurHse"
+            >Is Validateur Hse</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isValidateurHse"
+            id="field_isValidateurHse"
+            data-cy="isValidateurHse"
+            formControlName="isValidateurHse"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.statut" for="field_statut">Statut</label>
+          <select class="form-control" id="field_statut" data-cy="statut" name="statut" formControlName="statut">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="statutOption.id === editForm.get('statut')!.value?.id ? editForm.get('statut')!.value : statutOption"
+              *ngFor="let statutOption of statutsSharedCollection; trackBy: trackStatutById"
+            >
+              {{ statutOption.statut }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.sexe" for="field_sexe">Sexe</label>
+          <select class="form-control" id="field_sexe" data-cy="sexe" name="sexe" formControlName="sexe">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="sexeOption.id === editForm.get('sexe')!.value?.id ? editForm.get('sexe')!.value : sexeOption"
+              *ngFor="let sexeOption of sexesSharedCollection; trackBy: trackSexeById"
+            >
+              {{ sexeOption.sexe }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.departement" for="field_departement">Departement</label>
+          <select class="form-control" id="field_departement" data-cy="departement" name="departement" formControlName="departement">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                departementOption.id === editForm.get('departement')!.value?.id ? editForm.get('departement')!.value : departementOption
+              "
+              *ngFor="let departementOption of departementsSharedCollection; trackBy: trackDepartementById"
+            >
+              {{ departementOption.departement }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.contrat" for="field_contrat">Contrat</label>
+          <select class="form-control" id="field_contrat" data-cy="contrat" name="contrat" formControlName="contrat">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="contratOption.id === editForm.get('contrat')!.value?.id ? editForm.get('contrat')!.value : contratOption"
+              *ngFor="let contratOption of contratsSharedCollection; trackBy: trackContratById"
+            >
+              {{ contratOption.contrat }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.site" for="field_site">Site</label>
+          <select class="form-control" id="field_site" data-cy="site" name="site" formControlName="site">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="siteOption.id === editForm.get('site')!.value?.id ? editForm.get('site')!.value : siteOption"
+              *ngFor="let siteOption of sitesSharedCollection; trackBy: trackSiteById"
+            >
+              {{ siteOption.site }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.userExtra.csp" for="field_csp">Csp</label>
+          <select class="form-control" id="field_csp" data-cy="csp" name="csp" formControlName="csp">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="cspOption.id === editForm.get('csp')!.value?.id ? editForm.get('csp')!.value : cspOption"
+              *ngFor="let cspOption of cspsSharedCollection; trackBy: trackCspById"
+            >
+              {{ cspOption.csp }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+{
+  "name": "UserExtra",
+  "fields": [
+    {
+      "fieldName": "matricule",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDeNaissance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isRedacteur",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isPilote",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isPorteur",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isCodir",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isHse",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isValidateurHse",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "user",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "statut",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "statut",
+      "otherEntityField": "statut"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sexe",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "sexe",
+      "otherEntityField": "sexe"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departement",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "departement",
+      "otherEntityField": "departement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "contrat",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "contrat",
+      "otherEntityField": "contrat"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "site",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "site",
+      "otherEntityField": "site"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "csp",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "csp",
+      "otherEntityField": "csp"
+    }
+  ],
+  "entityTableName": "user_extra",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123025"
+}

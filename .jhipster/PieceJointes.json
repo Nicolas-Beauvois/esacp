@@ -1,0 +1,27 @@
+{
+  "name": "PieceJointes",
+  "fields": [
+    {
+      "fieldName": "pj",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "actions",
+      "otherEntityRelationshipName": "pj",
+      "relationshipName": "actions"
+    }
+  ],
+  "entityTableName": "piece_jointes",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123040"
+}

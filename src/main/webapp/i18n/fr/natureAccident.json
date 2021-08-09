@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "natureAccident": {
+      "home": {
+        "title": "NatureAccidents",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Nature Accident",
+        "createOrEditLabel": "Créer ou éditer un Nature Accident",
+        "notFound": "Aucun Nature Accident trouvé"
+      },
+      "created": "Un nouveau Nature Accident a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Nature Accident avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Nature Accident avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Nature Accident {{ id }} ?"
+      },
+      "detail": {
+        "title": "Nature Accident"
+      },
+      "id": "ID",
+      "typeNatureAccident": "Type Nature Accident",
+      "rapport": "Rapport"
+    }
+  }
+}

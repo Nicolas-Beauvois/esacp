@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Actions.
+    -->
+    <changeSet id="20210809123030-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="rapport_id"
+                                 baseTableName="actions"
+                                 constraintName="fk_actions__rapport_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="rapport"/>
+
+        <addForeignKeyConstraint baseColumnNames="correct_prevent_id"
+                                 baseTableName="actions"
+                                 constraintName="fk_actions__correct_prevent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="correct_prevent"/>
+
+        <addForeignKeyConstraint baseColumnNames="priorite_id"
+                                 baseTableName="actions"
+                                 constraintName="fk_actions__priorite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="priorite"/>
+
+        <addForeignKeyConstraint baseColumnNames="etape_validation_id"
+                                 baseTableName="actions"
+                                 constraintName="fk_actions__etape_validation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="etape_validation"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_action_id"
+                                 baseTableName="actions"
+                                 constraintName="fk_actions__type_action_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_action"/>
+
+        <addForeignKeyConstraint baseColumnNames="criticite_id"
+                                 baseTableName="actions"
+                                 constraintName="fk_actions__criticite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="criticite"/>
+
+        <addForeignKeyConstraint baseColumnNames="pj_id"
+                                 baseTableName="actions"
+                                 constraintName="fk_actions__pj_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="piece_jointes"/>
+    </changeSet>
+</databaseChangeLog>

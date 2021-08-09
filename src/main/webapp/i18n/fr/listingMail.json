@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "listingMail": {
+      "home": {
+        "title": "ListingMails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Listing Mail",
+        "createOrEditLabel": "Créer ou éditer un Listing Mail",
+        "notFound": "Aucun Listing Mail trouvé"
+      },
+      "created": "Un nouveau Listing Mail a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Listing Mail avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Listing Mail avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Listing Mail {{ id }} ?"
+      },
+      "detail": {
+        "title": "Listing Mail"
+      },
+      "id": "ID",
+      "typeMessage": "Type Message",
+      "email": "Email"
+    }
+  }
+}

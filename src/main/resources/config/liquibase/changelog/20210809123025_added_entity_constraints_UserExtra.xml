@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity UserExtra.
+    -->
+    <changeSet id="20210809123025-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_extra"
+                                 constraintName="fk_user_extra__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="statut_id"
+                                 baseTableName="user_extra"
+                                 constraintName="fk_user_extra__statut_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="statut"/>
+
+        <addForeignKeyConstraint baseColumnNames="sexe_id"
+                                 baseTableName="user_extra"
+                                 constraintName="fk_user_extra__sexe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sexe"/>
+
+        <addForeignKeyConstraint baseColumnNames="departement_id"
+                                 baseTableName="user_extra"
+                                 constraintName="fk_user_extra__departement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="departement"/>
+
+        <addForeignKeyConstraint baseColumnNames="contrat_id"
+                                 baseTableName="user_extra"
+                                 constraintName="fk_user_extra__contrat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="contrat"/>
+
+        <addForeignKeyConstraint baseColumnNames="site_id"
+                                 baseTableName="user_extra"
+                                 constraintName="fk_user_extra__site_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="site"/>
+
+        <addForeignKeyConstraint baseColumnNames="csp_id"
+                                 baseTableName="user_extra"
+                                 constraintName="fk_user_extra__csp_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="csp"/>
+    </changeSet>
+</databaseChangeLog>

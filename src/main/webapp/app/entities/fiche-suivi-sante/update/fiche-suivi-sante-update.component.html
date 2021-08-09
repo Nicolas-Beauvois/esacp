@@ -1,0 +1,184 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-fiche-suivi-sante-heading"
+        data-cy="FicheSuiviSanteCreateUpdateHeading"
+        jhiTranslate="esacpApp.ficheSuiviSante.home.createOrEditLabel"
+      >
+        Create or edit a Fiche Suivi Sante
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.ficheSuiviSante.suiviIndividuel" for="field_suiviIndividuel"
+            >Suivi Individuel</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="suiviIndividuel"
+            id="field_suiviIndividuel"
+            data-cy="suiviIndividuel"
+            formControlName="suiviIndividuel"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.ficheSuiviSante.medecinDuTravail" for="field_medecinDuTravail"
+            >Medecin Du Travail</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="medecinDuTravail"
+            id="field_medecinDuTravail"
+            data-cy="medecinDuTravail"
+            formControlName="medecinDuTravail"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.ficheSuiviSante.dateDeCreation" for="field_dateDeCreation"
+            >Date De Creation</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDeCreation"
+              data-cy="dateDeCreation"
+              type="text"
+              class="form-control"
+              name="dateDeCreation"
+              ngbDatepicker
+              #dateDeCreationDp="ngbDatepicker"
+              formControlName="dateDeCreation"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDeCreationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.ficheSuiviSante.datededebutAT" for="field_datededebutAT"
+            >Datededebut AT</label
+          >
+          <div class="input-group">
+            <input
+              id="field_datededebutAT"
+              data-cy="datededebutAT"
+              type="text"
+              class="form-control"
+              name="datededebutAT"
+              ngbDatepicker
+              #datededebutATDp="ngbDatepicker"
+              formControlName="datededebutAT"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="datededebutATDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.ficheSuiviSante.datedefinAT" for="field_datedefinAT">Datedefin AT</label>
+          <div class="input-group">
+            <input
+              id="field_datedefinAT"
+              data-cy="datedefinAT"
+              type="text"
+              class="form-control"
+              name="datedefinAT"
+              ngbDatepicker
+              #datedefinATDp="ngbDatepicker"
+              formControlName="datedefinAT"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="datedefinATDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.ficheSuiviSante.propositionMedecinDuTravail"
+            for="field_propositionMedecinDuTravail"
+            >Proposition Medecin Du Travail</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="propositionMedecinDuTravail"
+            id="field_propositionMedecinDuTravail"
+            data-cy="propositionMedecinDuTravail"
+            formControlName="propositionMedecinDuTravail"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.ficheSuiviSante.aRevoirLe" for="field_aRevoirLe">A Revoir Le</label>
+          <div class="input-group">
+            <input
+              id="field_aRevoirLe"
+              data-cy="aRevoirLe"
+              type="text"
+              class="form-control"
+              name="aRevoirLe"
+              ngbDatepicker
+              #aRevoirLeDp="ngbDatepicker"
+              formControlName="aRevoirLe"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="aRevoirLeDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.ficheSuiviSante.typeAt" for="field_typeAt">Type At</label>
+          <select class="form-control" id="field_typeAt" data-cy="typeAt" name="typeAt" formControlName="typeAt">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="typeAtOption.id === editForm.get('typeAt')!.value?.id ? editForm.get('typeAt')!.value : typeAtOption"
+              *ngFor="let typeAtOption of typeAtsSharedCollection; trackBy: trackTypeAtById"
+            >
+              {{ typeAtOption.typeAt }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

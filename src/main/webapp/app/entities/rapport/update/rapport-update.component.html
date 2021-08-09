@@ -1,0 +1,939 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-rapport-heading" data-cy="RapportCreateUpdateHeading" jhiTranslate="esacpApp.rapport.home.createOrEditLabel">
+        Create or edit a Rapport
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.redacteur" for="field_redacteur">Redacteur</label>
+          <input type="text" class="form-control" name="redacteur" id="field_redacteur" data-cy="redacteur" formControlName="redacteur" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.dateDeCreation" for="field_dateDeCreation"
+            >Date De Creation</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateDeCreation"
+              data-cy="dateDeCreation"
+              type="text"
+              class="form-control"
+              name="dateDeCreation"
+              ngbDatepicker
+              #dateDeCreationDp="ngbDatepicker"
+              formControlName="dateDeCreation"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDeCreationDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.uap" for="field_uap">Uap</label>
+          <input type="text" class="form-control" name="uap" id="field_uap" data-cy="uap" formControlName="uap" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.dateEtHeureConnaissanceAt" for="field_dateEtHeureConnaissanceAt"
+            >Date Et Heure Connaissance At</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureConnaissanceAt"
+              data-cy="dateEtHeureConnaissanceAt"
+              type="text"
+              class="form-control"
+              name="dateEtHeureConnaissanceAt"
+              ngbDatepicker
+              #dateEtHeureConnaissanceAtDp="ngbDatepicker"
+              formControlName="dateEtHeureConnaissanceAt"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureConnaissanceAtDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.prevenuComment" for="field_prevenuComment"
+            >Prevenu Comment</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prevenuComment"
+            id="field_prevenuComment"
+            data-cy="prevenuComment"
+            formControlName="prevenuComment"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.rapport.nomPremierePersonnePrevenu"
+            for="field_nomPremierePersonnePrevenu"
+            >Nom Premiere Personne Prevenu</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nomPremierePersonnePrevenu"
+            id="field_nomPremierePersonnePrevenu"
+            data-cy="nomPremierePersonnePrevenu"
+            formControlName="nomPremierePersonnePrevenu"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.dateEtHeurePrevenu" for="field_dateEtHeurePrevenu"
+            >Date Et Heure Prevenu</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeurePrevenu"
+              data-cy="dateEtHeurePrevenu"
+              type="text"
+              class="form-control"
+              name="dateEtHeurePrevenu"
+              ngbDatepicker
+              #dateEtHeurePrevenuDp="ngbDatepicker"
+              formControlName="dateEtHeurePrevenu"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeurePrevenuDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isTemoin" for="field_isTemoin">Is Temoin</label>
+          <input type="checkbox" class="form-check" name="isTemoin" id="field_isTemoin" data-cy="isTemoin" formControlName="isTemoin" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.commentaireTemoin" for="field_commentaireTemoin"
+            >Commentaire Temoin</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireTemoin"
+            id="field_commentaireTemoin"
+            data-cy="commentaireTemoin"
+            formControlName="commentaireTemoin"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isTiersEnCause" for="field_isTiersEnCause"
+            >Is Tiers En Cause</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isTiersEnCause"
+            id="field_isTiersEnCause"
+            data-cy="isTiersEnCause"
+            formControlName="isTiersEnCause"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.commentaireTiersEnCause" for="field_commentaireTiersEnCause"
+            >Commentaire Tiers En Cause</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireTiersEnCause"
+            id="field_commentaireTiersEnCause"
+            data-cy="commentaireTiersEnCause"
+            formControlName="commentaireTiersEnCause"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isAutreVictime" for="field_isAutreVictime"
+            >Is Autre Victime</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isAutreVictime"
+            id="field_isAutreVictime"
+            data-cy="isAutreVictime"
+            formControlName="isAutreVictime"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.commentaireAutreVictime" for="field_commentaireAutreVictime"
+            >Commentaire Autre Victime</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireAutreVictime"
+            id="field_commentaireAutreVictime"
+            data-cy="commentaireAutreVictime"
+            formControlName="commentaireAutreVictime"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isRapportDePolice" for="field_isRapportDePolice"
+            >Is Rapport De Police</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isRapportDePolice"
+            id="field_isRapportDePolice"
+            data-cy="isRapportDePolice"
+            formControlName="isRapportDePolice"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.rapport.commentaireRapportDePolice"
+            for="field_commentaireRapportDePolice"
+            >Commentaire Rapport De Police</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireRapportDePolice"
+            id="field_commentaireRapportDePolice"
+            data-cy="commentaireRapportDePolice"
+            formControlName="commentaireRapportDePolice"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isVictimeTransports" for="field_isVictimeTransports"
+            >Is Victime Transports</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isVictimeTransports"
+            id="field_isVictimeTransports"
+            data-cy="isVictimeTransports"
+            formControlName="isVictimeTransports"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.rapport.commentaireVictimeTransporter"
+            for="field_commentaireVictimeTransporter"
+            >Commentaire Victime Transporter</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireVictimeTransporter"
+            id="field_commentaireVictimeTransporter"
+            data-cy="commentaireVictimeTransporter"
+            formControlName="commentaireVictimeTransporter"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.dateEtHeureMomentAccident" for="field_dateEtHeureMomentAccident"
+            >Date Et Heure Moment Accident</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureMomentAccident"
+              data-cy="dateEtHeureMomentAccident"
+              type="text"
+              class="form-control"
+              name="dateEtHeureMomentAccident"
+              ngbDatepicker
+              #dateEtHeureMomentAccidentDp="ngbDatepicker"
+              formControlName="dateEtHeureMomentAccident"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureMomentAccidentDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.lieuAccident" for="field_lieuAccident">Lieu Accident</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lieuAccident"
+            id="field_lieuAccident"
+            data-cy="lieuAccident"
+            formControlName="lieuAccident"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isIdentifierDu" for="field_isIdentifierDu"
+            >Is Identifier Du</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isIdentifierDu"
+            id="field_isIdentifierDu"
+            data-cy="isIdentifierDu"
+            formControlName="isIdentifierDu"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.circonstanceAccident" for="field_circonstanceAccident"
+            >Circonstance Accident</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="circonstanceAccident"
+            id="field_circonstanceAccident"
+            data-cy="circonstanceAccident"
+            formControlName="circonstanceAccident"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.materielEnCause" for="field_materielEnCause"
+            >Materiel En Cause</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="materielEnCause"
+            id="field_materielEnCause"
+            data-cy="materielEnCause"
+            formControlName="materielEnCause"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.remarques" for="field_remarques">Remarques</label>
+          <input type="text" class="form-control" name="remarques" id="field_remarques" data-cy="remarques" formControlName="remarques" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.pilote" for="field_pilote">Pilote</label>
+          <input type="text" class="form-control" name="pilote" id="field_pilote" data-cy="pilote" formControlName="pilote" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.rapport.dateEtHeureValidationPilote"
+            for="field_dateEtHeureValidationPilote"
+            >Date Et Heure Validation Pilote</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureValidationPilote"
+              data-cy="dateEtHeureValidationPilote"
+              type="text"
+              class="form-control"
+              name="dateEtHeureValidationPilote"
+              ngbDatepicker
+              #dateEtHeureValidationPiloteDp="ngbDatepicker"
+              formControlName="dateEtHeureValidationPilote"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureValidationPiloteDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.porteur" for="field_porteur">Porteur</label>
+          <input type="text" class="form-control" name="porteur" id="field_porteur" data-cy="porteur" formControlName="porteur" />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.rapport.dateEtHeureValidationPorteur"
+            for="field_dateEtHeureValidationPorteur"
+            >Date Et Heure Validation Porteur</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureValidationPorteur"
+              data-cy="dateEtHeureValidationPorteur"
+              type="text"
+              class="form-control"
+              name="dateEtHeureValidationPorteur"
+              ngbDatepicker
+              #dateEtHeureValidationPorteurDp="ngbDatepicker"
+              formControlName="dateEtHeureValidationPorteur"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureValidationPorteurDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.hse" for="field_hse">Hse</label>
+          <input type="text" class="form-control" name="hse" id="field_hse" data-cy="hse" formControlName="hse" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.dateEtHeureValidationHse" for="field_dateEtHeureValidationHse"
+            >Date Et Heure Validation Hse</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dateEtHeureValidationHse"
+              data-cy="dateEtHeureValidationHse"
+              type="text"
+              class="form-control"
+              name="dateEtHeureValidationHse"
+              ngbDatepicker
+              #dateEtHeureValidationHseDp="ngbDatepicker"
+              formControlName="dateEtHeureValidationHse"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateEtHeureValidationHseDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isIntervention8300" for="field_isIntervention8300"
+            >Is Intervention 8300</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isIntervention8300"
+            id="field_isIntervention8300"
+            data-cy="isIntervention8300"
+            formControlName="isIntervention8300"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isInterventionInfirmiere" for="field_isInterventionInfirmiere"
+            >Is Intervention Infirmiere</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isInterventionInfirmiere"
+            id="field_isInterventionInfirmiere"
+            data-cy="isInterventionInfirmiere"
+            formControlName="isInterventionInfirmiere"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.commentaireInfirmere" for="field_commentaireInfirmere"
+            >Commentaire Infirmere</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireInfirmere"
+            id="field_commentaireInfirmere"
+            data-cy="commentaireInfirmere"
+            formControlName="commentaireInfirmere"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isInterventionMedecin" for="field_isInterventionMedecin"
+            >Is Intervention Medecin</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isInterventionMedecin"
+            id="field_isInterventionMedecin"
+            data-cy="isInterventionMedecin"
+            formControlName="isInterventionMedecin"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.commentaireMedecin" for="field_commentaireMedecin"
+            >Commentaire Medecin</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireMedecin"
+            id="field_commentaireMedecin"
+            data-cy="commentaireMedecin"
+            formControlName="commentaireMedecin"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.isInterventionsecouriste" for="field_isInterventionsecouriste"
+            >Is Interventionsecouriste</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isInterventionsecouriste"
+            id="field_isInterventionsecouriste"
+            data-cy="isInterventionsecouriste"
+            formControlName="isInterventionsecouriste"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.commentaireSecouriste" for="field_commentaireSecouriste"
+            >Commentaire Secouriste</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="commentaireSecouriste"
+            id="field_commentaireSecouriste"
+            data-cy="commentaireSecouriste"
+            formControlName="commentaireSecouriste"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="esacpApp.rapport.isInterventionsecouristeExterieur"
+            for="field_isInterventionsecouristeExterieur"
+            >Is Interventionsecouriste Exterieur</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isInterventionsecouristeExterieur"
+            id="field_isInterventionsecouristeExterieur"
+            data-cy="isInterventionsecouristeExterieur"
+            formControlName="isInterventionsecouristeExterieur"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.retourAuPosteDeTravail" for="field_retourAuPosteDeTravail"
+            >Retour Au Poste De Travail</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="retourAuPosteDeTravail"
+            id="field_retourAuPosteDeTravail"
+            data-cy="retourAuPosteDeTravail"
+            formControlName="retourAuPosteDeTravail"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.travailLegerPossible" for="field_travailLegerPossible"
+            >Travail Leger Possible</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="travailLegerPossible"
+            id="field_travailLegerPossible"
+            data-cy="travailLegerPossible"
+            formControlName="travailLegerPossible"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.analyseAChaudInfirmiere" for="field_analyseAChaudInfirmiere"
+            >Analyse A Chaud Infirmiere</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="analyseAChaudInfirmiere"
+            id="field_analyseAChaudInfirmiere"
+            data-cy="analyseAChaudInfirmiere"
+            formControlName="analyseAChaudInfirmiere"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.analyseAChaudCodir" for="field_analyseAChaudCodir"
+            >Analyse A Chaud Codir</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="analyseAChaudCodir"
+            id="field_analyseAChaudCodir"
+            data-cy="analyseAChaudCodir"
+            formControlName="analyseAChaudCodir"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.analyseAChaudHse" for="field_analyseAChaudHse"
+            >Analyse A Chaud Hse</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="analyseAChaudHse"
+            id="field_analyseAChaudHse"
+            data-cy="analyseAChaudHse"
+            formControlName="analyseAChaudHse"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.analyseAChaudNplus1" for="field_analyseAChaudNplus1"
+            >Analyse A Chaud Nplus 1</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="analyseAChaudNplus1"
+            id="field_analyseAChaudNplus1"
+            data-cy="analyseAChaudNplus1"
+            formControlName="analyseAChaudNplus1"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.analyseAChaudCssCt" for="field_analyseAChaudCssCt"
+            >Analyse A Chaud Css Ct</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="analyseAChaudCssCt"
+            id="field_analyseAChaudCssCt"
+            data-cy="analyseAChaudCssCt"
+            formControlName="analyseAChaudCssCt"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.analyseAChaudCommentaire" for="field_analyseAChaudCommentaire"
+            >Analyse A Chaud Commentaire</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="analyseAChaudCommentaire"
+            id="field_analyseAChaudCommentaire"
+            data-cy="analyseAChaudCommentaire"
+            formControlName="analyseAChaudCommentaire"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.pourquoi1" for="field_pourquoi1">Pourquoi 1</label>
+          <input type="text" class="form-control" name="pourquoi1" id="field_pourquoi1" data-cy="pourquoi1" formControlName="pourquoi1" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.pourquoi2" for="field_pourquoi2">Pourquoi 2</label>
+          <input type="text" class="form-control" name="pourquoi2" id="field_pourquoi2" data-cy="pourquoi2" formControlName="pourquoi2" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.pourquoi3" for="field_pourquoi3">Pourquoi 3</label>
+          <input type="text" class="form-control" name="pourquoi3" id="field_pourquoi3" data-cy="pourquoi3" formControlName="pourquoi3" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.pourquoi4" for="field_pourquoi4">Pourquoi 4</label>
+          <input type="text" class="form-control" name="pourquoi4" id="field_pourquoi4" data-cy="pourquoi4" formControlName="pourquoi4" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.pourquoi5" for="field_pourquoi5">Pourquoi 5</label>
+          <input type="text" class="form-control" name="pourquoi5" id="field_pourquoi5" data-cy="pourquoi5" formControlName="pourquoi5" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.bras" for="field_bras">Bras</label>
+          <input type="checkbox" class="form-check" name="bras" id="field_bras" data-cy="bras" formControlName="bras" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.chevilles" for="field_chevilles">Chevilles</label>
+          <input type="checkbox" class="form-check" name="chevilles" id="field_chevilles" data-cy="chevilles" formControlName="chevilles" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.colonne" for="field_colonne">Colonne</label>
+          <input type="checkbox" class="form-check" name="colonne" id="field_colonne" data-cy="colonne" formControlName="colonne" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.cou" for="field_cou">Cou</label>
+          <input type="checkbox" class="form-check" name="cou" id="field_cou" data-cy="cou" formControlName="cou" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.coude" for="field_coude">Coude</label>
+          <input type="checkbox" class="form-check" name="coude" id="field_coude" data-cy="coude" formControlName="coude" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.cos" for="field_cos">Cos</label>
+          <input type="checkbox" class="form-check" name="cos" id="field_cos" data-cy="cos" formControlName="cos" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.epaule" for="field_epaule">Epaule</label>
+          <input type="checkbox" class="form-check" name="epaule" id="field_epaule" data-cy="epaule" formControlName="epaule" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.genou" for="field_genou">Genou</label>
+          <input type="checkbox" class="form-check" name="genou" id="field_genou" data-cy="genou" formControlName="genou" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.jambes" for="field_jambes">Jambes</label>
+          <input type="checkbox" class="form-check" name="jambes" id="field_jambes" data-cy="jambes" formControlName="jambes" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.mains" for="field_mains">Mains</label>
+          <input type="checkbox" class="form-check" name="mains" id="field_mains" data-cy="mains" formControlName="mains" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.oeil" for="field_oeil">Oeil</label>
+          <input type="checkbox" class="form-check" name="oeil" id="field_oeil" data-cy="oeil" formControlName="oeil" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.pieds" for="field_pieds">Pieds</label>
+          <input type="checkbox" class="form-check" name="pieds" id="field_pieds" data-cy="pieds" formControlName="pieds" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.poignet" for="field_poignet">Poignet</label>
+          <input type="checkbox" class="form-check" name="poignet" id="field_poignet" data-cy="poignet" formControlName="poignet" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.tete" for="field_tete">Tete</label>
+          <input type="checkbox" class="form-check" name="tete" id="field_tete" data-cy="tete" formControlName="tete" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.torse" for="field_torse">Torse</label>
+          <input type="checkbox" class="form-check" name="torse" id="field_torse" data-cy="torse" formControlName="torse" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.login }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.siegeLesions" for="field_siegeLesions">Siege Lesions</label>
+          <select class="form-control" id="field_siegeLesions" data-cy="siegeLesions" name="siegeLesions" formControlName="siegeLesions">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                siegeLesionsOption.id === editForm.get('siegeLesions')!.value?.id ? editForm.get('siegeLesions')!.value : siegeLesionsOption
+              "
+              *ngFor="let siegeLesionsOption of siegeLesionsSharedCollection; trackBy: trackSiegeLesionsById"
+            >
+              {{ siegeLesionsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.ficheSuiviSante" for="field_ficheSuiviSante"
+            >Fiche Suivi Sante</label
+          >
+          <select
+            class="form-control"
+            id="field_ficheSuiviSante"
+            data-cy="ficheSuiviSante"
+            name="ficheSuiviSante"
+            formControlName="ficheSuiviSante"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                ficheSuiviSanteOption.id === editForm.get('ficheSuiviSante')!.value?.id
+                  ? editForm.get('ficheSuiviSante')!.value
+                  : ficheSuiviSanteOption
+              "
+              *ngFor="let ficheSuiviSanteOption of ficheSuiviSantesSharedCollection; trackBy: trackFicheSuiviSanteById"
+            >
+              {{ ficheSuiviSanteOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.type" for="field_type">Type</label>
+          <select class="form-control" id="field_type" data-cy="type" name="type" formControlName="type">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="typeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : typeOption"
+              *ngFor="let typeOption of typesSharedCollection; trackBy: trackTypeById"
+            >
+              {{ typeOption.origine }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.categorie" for="field_categorie">Categorie</label>
+          <select class="form-control" id="field_categorie" data-cy="categorie" name="categorie" formControlName="categorie">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="categorieOption.id === editForm.get('categorie')!.value?.id ? editForm.get('categorie')!.value : categorieOption"
+              *ngFor="let categorieOption of categoriesSharedCollection; trackBy: trackCategorieById"
+            >
+              {{ categorieOption.categorie }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.equipement" for="field_equipement">Equipement</label>
+          <select class="form-control" id="field_equipement" data-cy="equipement" name="equipement" formControlName="equipement">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                equipementOption.id === editForm.get('equipement')!.value?.id ? editForm.get('equipement')!.value : equipementOption
+              "
+              *ngFor="let equipementOption of equipementsSharedCollection; trackBy: trackEquipementById"
+            >
+              {{ equipementOption.equipement }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.typeRapport" for="field_typeRapport">Type Rapport</label>
+          <select class="form-control" id="field_typeRapport" data-cy="typeRapport" name="typeRapport" formControlName="typeRapport">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                typeRapportOption.id === editForm.get('typeRapport')!.value?.id ? editForm.get('typeRapport')!.value : typeRapportOption
+              "
+              *ngFor="let typeRapportOption of typeRapportsSharedCollection; trackBy: trackTypeRapportById"
+            >
+              {{ typeRapportOption.typeRapport }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.natureAccident" for="field_natureAccident"
+            >Nature Accident</label
+          >
+          <select
+            class="form-control"
+            id="field_natureAccident"
+            data-cy="natureAccident"
+            name="natureAccident"
+            formControlName="natureAccident"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                natureAccidentOption.id === editForm.get('natureAccident')!.value?.id
+                  ? editForm.get('natureAccident')!.value
+                  : natureAccidentOption
+              "
+              *ngFor="let natureAccidentOption of natureAccidentsSharedCollection; trackBy: trackNatureAccidentById"
+            >
+              {{ natureAccidentOption.typeNatureAccident }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="esacpApp.rapport.origineLesions" for="field_origineLesions"
+            >Origine Lesions</label
+          >
+          <select
+            class="form-control"
+            id="field_origineLesions"
+            data-cy="origineLesions"
+            name="origineLesions"
+            formControlName="origineLesions"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                origineLesionsOption.id === editForm.get('origineLesions')!.value?.id
+                  ? editForm.get('origineLesions')!.value
+                  : origineLesionsOption
+              "
+              *ngFor="let origineLesionsOption of origineLesionsSharedCollection; trackBy: trackOrigineLesionsById"
+            >
+              {{ origineLesionsOption.origineLesions }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

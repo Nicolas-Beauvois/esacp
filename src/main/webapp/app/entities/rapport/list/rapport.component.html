@@ -1,0 +1,404 @@
+<div>
+  <h2 id="page-heading" data-cy="RapportHeading">
+    <span jhiTranslate="esacpApp.rapport.home.title">Rapports</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="esacpApp.rapport.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-rapport"
+        [routerLink]="['/rapport/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="esacpApp.rapport.home.createLabel"> Create a new Rapport </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="rapports?.length === 0">
+    <span jhiTranslate="esacpApp.rapport.home.notFound">No rapports found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="rapports && rapports.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="redacteur">
+            <span jhiTranslate="esacpApp.rapport.redacteur">Redacteur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateDeCreation">
+            <span jhiTranslate="esacpApp.rapport.dateDeCreation">Date De Creation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="uap"><span jhiTranslate="esacpApp.rapport.uap">Uap</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateEtHeureConnaissanceAt">
+            <span jhiTranslate="esacpApp.rapport.dateEtHeureConnaissanceAt">Date Et Heure Connaissance At</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prevenuComment">
+            <span jhiTranslate="esacpApp.rapport.prevenuComment">Prevenu Comment</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nomPremierePersonnePrevenu">
+            <span jhiTranslate="esacpApp.rapport.nomPremierePersonnePrevenu">Nom Premiere Personne Prevenu</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateEtHeurePrevenu">
+            <span jhiTranslate="esacpApp.rapport.dateEtHeurePrevenu">Date Et Heure Prevenu</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isTemoin">
+            <span jhiTranslate="esacpApp.rapport.isTemoin">Is Temoin</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireTemoin">
+            <span jhiTranslate="esacpApp.rapport.commentaireTemoin">Commentaire Temoin</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isTiersEnCause">
+            <span jhiTranslate="esacpApp.rapport.isTiersEnCause">Is Tiers En Cause</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireTiersEnCause">
+            <span jhiTranslate="esacpApp.rapport.commentaireTiersEnCause">Commentaire Tiers En Cause</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isAutreVictime">
+            <span jhiTranslate="esacpApp.rapport.isAutreVictime">Is Autre Victime</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireAutreVictime">
+            <span jhiTranslate="esacpApp.rapport.commentaireAutreVictime">Commentaire Autre Victime</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isRapportDePolice">
+            <span jhiTranslate="esacpApp.rapport.isRapportDePolice">Is Rapport De Police</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireRapportDePolice">
+            <span jhiTranslate="esacpApp.rapport.commentaireRapportDePolice">Commentaire Rapport De Police</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isVictimeTransports">
+            <span jhiTranslate="esacpApp.rapport.isVictimeTransports">Is Victime Transports</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireVictimeTransporter">
+            <span jhiTranslate="esacpApp.rapport.commentaireVictimeTransporter">Commentaire Victime Transporter</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateEtHeureMomentAccident">
+            <span jhiTranslate="esacpApp.rapport.dateEtHeureMomentAccident">Date Et Heure Moment Accident</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lieuAccident">
+            <span jhiTranslate="esacpApp.rapport.lieuAccident">Lieu Accident</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isIdentifierDu">
+            <span jhiTranslate="esacpApp.rapport.isIdentifierDu">Is Identifier Du</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="circonstanceAccident">
+            <span jhiTranslate="esacpApp.rapport.circonstanceAccident">Circonstance Accident</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="materielEnCause">
+            <span jhiTranslate="esacpApp.rapport.materielEnCause">Materiel En Cause</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remarques">
+            <span jhiTranslate="esacpApp.rapport.remarques">Remarques</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pilote"><span jhiTranslate="esacpApp.rapport.pilote">Pilote</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateEtHeureValidationPilote">
+            <span jhiTranslate="esacpApp.rapport.dateEtHeureValidationPilote">Date Et Heure Validation Pilote</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="porteur">
+            <span jhiTranslate="esacpApp.rapport.porteur">Porteur</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateEtHeureValidationPorteur">
+            <span jhiTranslate="esacpApp.rapport.dateEtHeureValidationPorteur">Date Et Heure Validation Porteur</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="hse"><span jhiTranslate="esacpApp.rapport.hse">Hse</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateEtHeureValidationHse">
+            <span jhiTranslate="esacpApp.rapport.dateEtHeureValidationHse">Date Et Heure Validation Hse</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isIntervention8300">
+            <span jhiTranslate="esacpApp.rapport.isIntervention8300">Is Intervention 8300</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isInterventionInfirmiere">
+            <span jhiTranslate="esacpApp.rapport.isInterventionInfirmiere">Is Intervention Infirmiere</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireInfirmere">
+            <span jhiTranslate="esacpApp.rapport.commentaireInfirmere">Commentaire Infirmere</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isInterventionMedecin">
+            <span jhiTranslate="esacpApp.rapport.isInterventionMedecin">Is Intervention Medecin</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireMedecin">
+            <span jhiTranslate="esacpApp.rapport.commentaireMedecin">Commentaire Medecin</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isInterventionsecouriste">
+            <span jhiTranslate="esacpApp.rapport.isInterventionsecouriste">Is Interventionsecouriste</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="commentaireSecouriste">
+            <span jhiTranslate="esacpApp.rapport.commentaireSecouriste">Commentaire Secouriste</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isInterventionsecouristeExterieur">
+            <span jhiTranslate="esacpApp.rapport.isInterventionsecouristeExterieur">Is Interventionsecouriste Exterieur</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="retourAuPosteDeTravail">
+            <span jhiTranslate="esacpApp.rapport.retourAuPosteDeTravail">Retour Au Poste De Travail</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="travailLegerPossible">
+            <span jhiTranslate="esacpApp.rapport.travailLegerPossible">Travail Leger Possible</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="analyseAChaudInfirmiere">
+            <span jhiTranslate="esacpApp.rapport.analyseAChaudInfirmiere">Analyse A Chaud Infirmiere</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="analyseAChaudCodir">
+            <span jhiTranslate="esacpApp.rapport.analyseAChaudCodir">Analyse A Chaud Codir</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="analyseAChaudHse">
+            <span jhiTranslate="esacpApp.rapport.analyseAChaudHse">Analyse A Chaud Hse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="analyseAChaudNplus1">
+            <span jhiTranslate="esacpApp.rapport.analyseAChaudNplus1">Analyse A Chaud Nplus 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="analyseAChaudCssCt">
+            <span jhiTranslate="esacpApp.rapport.analyseAChaudCssCt">Analyse A Chaud Css Ct</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="analyseAChaudCommentaire">
+            <span jhiTranslate="esacpApp.rapport.analyseAChaudCommentaire">Analyse A Chaud Commentaire</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pourquoi1">
+            <span jhiTranslate="esacpApp.rapport.pourquoi1">Pourquoi 1</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pourquoi2">
+            <span jhiTranslate="esacpApp.rapport.pourquoi2">Pourquoi 2</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pourquoi3">
+            <span jhiTranslate="esacpApp.rapport.pourquoi3">Pourquoi 3</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pourquoi4">
+            <span jhiTranslate="esacpApp.rapport.pourquoi4">Pourquoi 4</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="pourquoi5">
+            <span jhiTranslate="esacpApp.rapport.pourquoi5">Pourquoi 5</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="bras"><span jhiTranslate="esacpApp.rapport.bras">Bras</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="chevilles">
+            <span jhiTranslate="esacpApp.rapport.chevilles">Chevilles</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="colonne">
+            <span jhiTranslate="esacpApp.rapport.colonne">Colonne</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cou"><span jhiTranslate="esacpApp.rapport.cou">Cou</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="coude"><span jhiTranslate="esacpApp.rapport.coude">Coude</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="cos"><span jhiTranslate="esacpApp.rapport.cos">Cos</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="epaule"><span jhiTranslate="esacpApp.rapport.epaule">Epaule</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="genou"><span jhiTranslate="esacpApp.rapport.genou">Genou</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="jambes"><span jhiTranslate="esacpApp.rapport.jambes">Jambes</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="mains"><span jhiTranslate="esacpApp.rapport.mains">Mains</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="oeil"><span jhiTranslate="esacpApp.rapport.oeil">Oeil</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="pieds"><span jhiTranslate="esacpApp.rapport.pieds">Pieds</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="poignet">
+            <span jhiTranslate="esacpApp.rapport.poignet">Poignet</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="tete"><span jhiTranslate="esacpApp.rapport.tete">Tete</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="torse"><span jhiTranslate="esacpApp.rapport.torse">Torse</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="user.login"><span jhiTranslate="esacpApp.rapport.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="siegeLesions.id">
+            <span jhiTranslate="esacpApp.rapport.siegeLesions">Siege Lesions</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ficheSuiviSante.id">
+            <span jhiTranslate="esacpApp.rapport.ficheSuiviSante">Fiche Suivi Sante</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="type.origine">
+            <span jhiTranslate="esacpApp.rapport.type">Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="categorie.categorie">
+            <span jhiTranslate="esacpApp.rapport.categorie">Categorie</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="equipement.equipement">
+            <span jhiTranslate="esacpApp.rapport.equipement">Equipement</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="typeRapport.typeRapport">
+            <span jhiTranslate="esacpApp.rapport.typeRapport">Type Rapport</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="natureAccident.typeNatureAccident">
+            <span jhiTranslate="esacpApp.rapport.natureAccident">Nature Accident</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="origineLesions.origineLesions">
+            <span jhiTranslate="esacpApp.rapport.origineLesions">Origine Lesions</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rapport of rapports; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/rapport', rapport.id, 'view']">{{ rapport.id }}</a>
+          </td>
+          <td>{{ rapport.redacteur }}</td>
+          <td>{{ rapport.dateDeCreation | formatMediumDate }}</td>
+          <td>{{ rapport.uap }}</td>
+          <td>{{ rapport.dateEtHeureConnaissanceAt | formatMediumDate }}</td>
+          <td>{{ rapport.prevenuComment }}</td>
+          <td>{{ rapport.nomPremierePersonnePrevenu }}</td>
+          <td>{{ rapport.dateEtHeurePrevenu | formatMediumDate }}</td>
+          <td>{{ rapport.isTemoin }}</td>
+          <td>{{ rapport.commentaireTemoin }}</td>
+          <td>{{ rapport.isTiersEnCause }}</td>
+          <td>{{ rapport.commentaireTiersEnCause }}</td>
+          <td>{{ rapport.isAutreVictime }}</td>
+          <td>{{ rapport.commentaireAutreVictime }}</td>
+          <td>{{ rapport.isRapportDePolice }}</td>
+          <td>{{ rapport.commentaireRapportDePolice }}</td>
+          <td>{{ rapport.isVictimeTransports }}</td>
+          <td>{{ rapport.commentaireVictimeTransporter }}</td>
+          <td>{{ rapport.dateEtHeureMomentAccident | formatMediumDate }}</td>
+          <td>{{ rapport.lieuAccident }}</td>
+          <td>{{ rapport.isIdentifierDu }}</td>
+          <td>{{ rapport.circonstanceAccident }}</td>
+          <td>{{ rapport.materielEnCause }}</td>
+          <td>{{ rapport.remarques }}</td>
+          <td>{{ rapport.pilote }}</td>
+          <td>{{ rapport.dateEtHeureValidationPilote | formatMediumDate }}</td>
+          <td>{{ rapport.porteur }}</td>
+          <td>{{ rapport.dateEtHeureValidationPorteur | formatMediumDate }}</td>
+          <td>{{ rapport.hse }}</td>
+          <td>{{ rapport.dateEtHeureValidationHse | formatMediumDate }}</td>
+          <td>{{ rapport.isIntervention8300 }}</td>
+          <td>{{ rapport.isInterventionInfirmiere }}</td>
+          <td>{{ rapport.commentaireInfirmere }}</td>
+          <td>{{ rapport.isInterventionMedecin }}</td>
+          <td>{{ rapport.commentaireMedecin }}</td>
+          <td>{{ rapport.isInterventionsecouriste }}</td>
+          <td>{{ rapport.commentaireSecouriste }}</td>
+          <td>{{ rapport.isInterventionsecouristeExterieur }}</td>
+          <td>{{ rapport.retourAuPosteDeTravail }}</td>
+          <td>{{ rapport.travailLegerPossible }}</td>
+          <td>{{ rapport.analyseAChaudInfirmiere }}</td>
+          <td>{{ rapport.analyseAChaudCodir }}</td>
+          <td>{{ rapport.analyseAChaudHse }}</td>
+          <td>{{ rapport.analyseAChaudNplus1 }}</td>
+          <td>{{ rapport.analyseAChaudCssCt }}</td>
+          <td>{{ rapport.analyseAChaudCommentaire }}</td>
+          <td>{{ rapport.pourquoi1 }}</td>
+          <td>{{ rapport.pourquoi2 }}</td>
+          <td>{{ rapport.pourquoi3 }}</td>
+          <td>{{ rapport.pourquoi4 }}</td>
+          <td>{{ rapport.pourquoi5 }}</td>
+          <td>{{ rapport.bras }}</td>
+          <td>{{ rapport.chevilles }}</td>
+          <td>{{ rapport.colonne }}</td>
+          <td>{{ rapport.cou }}</td>
+          <td>{{ rapport.coude }}</td>
+          <td>{{ rapport.cos }}</td>
+          <td>{{ rapport.epaule }}</td>
+          <td>{{ rapport.genou }}</td>
+          <td>{{ rapport.jambes }}</td>
+          <td>{{ rapport.mains }}</td>
+          <td>{{ rapport.oeil }}</td>
+          <td>{{ rapport.pieds }}</td>
+          <td>{{ rapport.poignet }}</td>
+          <td>{{ rapport.tete }}</td>
+          <td>{{ rapport.torse }}</td>
+          <td>
+            {{ rapport.user?.login }}
+          </td>
+          <td>
+            <div *ngIf="rapport.siegeLesions">
+              <a [routerLink]="['/siege-lesions', rapport.siegeLesions?.id, 'view']">{{ rapport.siegeLesions?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rapport.ficheSuiviSante">
+              <a [routerLink]="['/fiche-suivi-sante', rapport.ficheSuiviSante?.id, 'view']">{{ rapport.ficheSuiviSante?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rapport.type">
+              <a [routerLink]="['/type', rapport.type?.id, 'view']">{{ rapport.type?.origine }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rapport.categorie">
+              <a [routerLink]="['/categorie', rapport.categorie?.id, 'view']">{{ rapport.categorie?.categorie }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rapport.equipement">
+              <a [routerLink]="['/equipement', rapport.equipement?.id, 'view']">{{ rapport.equipement?.equipement }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rapport.typeRapport">
+              <a [routerLink]="['/type-rapport', rapport.typeRapport?.id, 'view']">{{ rapport.typeRapport?.typeRapport }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rapport.natureAccident">
+              <a [routerLink]="['/nature-accident', rapport.natureAccident?.id, 'view']">{{
+                rapport.natureAccident?.typeNatureAccident
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="rapport.origineLesions">
+              <a [routerLink]="['/origine-lesions', rapport.origineLesions?.id, 'view']">{{ rapport.origineLesions?.origineLesions }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/rapport', rapport.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/rapport', rapport.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(rapport)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="rapports && rapports.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

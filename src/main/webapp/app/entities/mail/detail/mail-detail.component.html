@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mail">
+      <h2 data-cy="mailDetailsHeading"><span jhiTranslate="esacpApp.mail.detail.title">Mail</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ mail.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.mail.typeMail">Type Mail</span></dt>
+        <dd>
+          <span>{{ mail.typeMail }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.mail.msgMail">Msg Mail</span></dt>
+        <dd>
+          <span>{{ mail.msgMail }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mail', mail.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "correctPrevent": {
+      "home": {
+        "title": "CorrectPrevents",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Correct Prevent",
+        "createOrEditLabel": "Créer ou éditer un Correct Prevent",
+        "notFound": "Aucun Correct Prevent trouvé"
+      },
+      "created": "Un nouveau Correct Prevent a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Correct Prevent avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Correct Prevent avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Correct Prevent {{ id }} ?"
+      },
+      "detail": {
+        "title": "Correct Prevent"
+      },
+      "id": "ID",
+      "correctPrevent": "Correct Prevent",
+      "actions": "Actions"
+    }
+  }
+}

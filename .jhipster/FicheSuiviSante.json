@@ -1,0 +1,58 @@
+{
+  "name": "FicheSuiviSante",
+  "fields": [
+    {
+      "fieldName": "suiviIndividuel",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "medecinDuTravail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateDeCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "datededebutAT",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "datedefinAT",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "propositionMedecinDuTravail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aRevoirLe",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "rapport",
+      "otherEntityRelationshipName": "ficheSuiviSante",
+      "relationshipName": "rapport"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeAt",
+      "otherEntityRelationshipName": "ficheSuiviSante",
+      "relationshipName": "typeAt",
+      "otherEntityField": "typeAt"
+    }
+  ],
+  "entityTableName": "fiche_suivi_sante",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123029"
+}

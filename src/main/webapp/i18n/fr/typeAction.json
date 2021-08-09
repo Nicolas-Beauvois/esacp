@@ -1,0 +1,25 @@
+{
+  "esacpApp": {
+    "typeAction": {
+      "home": {
+        "title": "TypeActions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Type Action",
+        "createOrEditLabel": "Créer ou éditer un Type Action",
+        "notFound": "Aucun Type Action trouvé"
+      },
+      "created": "Un nouveau Type Action a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Action avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Action avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Action {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Action"
+      },
+      "id": "ID",
+      "typeAction": "Type Action",
+      "actions": "Actions"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="actions">
+      <h2 data-cy="actionsDetailsHeading"><span jhiTranslate="esacpApp.actions.detail.title">Actions</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ actions.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.redacteur">Redacteur</span></dt>
+        <dd>
+          <span>{{ actions.redacteur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.isActionImmediate">Is Action Immediate</span></dt>
+        <dd>
+          <span>{{ actions.isActionImmediate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.dateEtHeureCreation">Date Et Heure Creation</span></dt>
+        <dd>
+          <span>{{ actions.dateEtHeureCreation | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.titre">Titre</span></dt>
+        <dd>
+          <span>{{ actions.titre }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.descriptionAction">Description Action</span></dt>
+        <dd>
+          <span>{{ actions.descriptionAction }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.descriptionReponse">Description Reponse</span></dt>
+        <dd>
+          <span>{{ actions.descriptionReponse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.delai">Delai</span></dt>
+        <dd>
+          <span>{{ actions.delai | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.etat">Etat</span></dt>
+        <dd>
+          <span>{{ actions.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.pilote">Pilote</span></dt>
+        <dd>
+          <span>{{ actions.pilote }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.dateEtHeureValidationPilote">Date Et Heure Validation Pilote</span></dt>
+        <dd>
+          <span>{{ actions.dateEtHeureValidationPilote | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.porteur">Porteur</span></dt>
+        <dd>
+          <span>{{ actions.porteur }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.dateEtHeureValidationPorteur">Date Et Heure Validation Porteur</span></dt>
+        <dd>
+          <span>{{ actions.dateEtHeureValidationPorteur | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.hse">Hse</span></dt>
+        <dd>
+          <span>{{ actions.hse }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.dateEtHeureValidationHse">Date Et Heure Validation Hse</span></dt>
+        <dd>
+          <span>{{ actions.dateEtHeureValidationHse | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.rapport">Rapport</span></dt>
+        <dd>
+          <div *ngIf="actions.rapport">
+            <a [routerLink]="['/rapport', actions.rapport?.id, 'view']">{{ actions.rapport?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.correctPrevent">Correct Prevent</span></dt>
+        <dd>
+          <div *ngIf="actions.correctPrevent">
+            <a [routerLink]="['/correct-prevent', actions.correctPrevent?.id, 'view']">{{ actions.correctPrevent?.correctPrevent }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.priorite">Priorite</span></dt>
+        <dd>
+          <div *ngIf="actions.priorite">
+            <a [routerLink]="['/priorite', actions.priorite?.id, 'view']">{{ actions.priorite?.priorite }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.etapeValidation">Etape Validation</span></dt>
+        <dd>
+          <div *ngIf="actions.etapeValidation">
+            <a [routerLink]="['/etape-validation', actions.etapeValidation?.id, 'view']">{{ actions.etapeValidation?.etapeValidation }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.typeAction">Type Action</span></dt>
+        <dd>
+          <div *ngIf="actions.typeAction">
+            <a [routerLink]="['/type-action', actions.typeAction?.id, 'view']">{{ actions.typeAction?.typeAction }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.criticite">Criticite</span></dt>
+        <dd>
+          <div *ngIf="actions.criticite">
+            <a [routerLink]="['/criticite', actions.criticite?.id, 'view']">{{ actions.criticite?.criticite }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="esacpApp.actions.pj">Pj</span></dt>
+        <dd>
+          <div *ngIf="actions.pj">
+            <a [routerLink]="['/piece-jointes', actions.pj?.id, 'view']">{{ actions.pj?.pj }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/actions', actions.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+{
+  "name": "Actions",
+  "fields": [
+    {
+      "fieldName": "redacteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActionImmediate",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "dateEtHeureCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "titre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descriptionAction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descriptionReponse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "delai",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pilote",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureValidationPilote",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "porteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureValidationPorteur",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "hse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateEtHeureValidationHse",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "rapport",
+      "otherEntityRelationshipName": "actions",
+      "relationshipName": "rapport"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "correctPrevent",
+      "otherEntityRelationshipName": "actions",
+      "relationshipName": "correctPrevent",
+      "otherEntityField": "correctPrevent"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "priorite",
+      "otherEntityRelationshipName": "actions",
+      "relationshipName": "priorite",
+      "otherEntityField": "priorite"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "etapeValidation",
+      "otherEntityRelationshipName": "actions",
+      "relationshipName": "etapeValidation",
+      "otherEntityField": "etapeValidation"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeAction",
+      "otherEntityRelationshipName": "actions",
+      "relationshipName": "typeAction",
+      "otherEntityField": "typeAction"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "criticite",
+      "otherEntityRelationshipName": "actions",
+      "relationshipName": "criticite",
+      "otherEntityField": "criticite"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pieceJointes",
+      "otherEntityRelationshipName": "actions",
+      "relationshipName": "pj",
+      "otherEntityField": "pj"
+    }
+  ],
+  "entityTableName": "actions",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["esacp"],
+  "changelogDate": "20210809123030"
+}
