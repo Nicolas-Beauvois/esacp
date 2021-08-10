@@ -1,48 +1,46 @@
-<div class="containerPage">
-  <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8 col-sm-10">
-      <h1 class="titrePage" data-cy="loginTitle">S'identifier</h1>
-      <div class="alert alert-danger" *ngIf="authenticationError" data-cy="loginError">
-        <strong>Erreur d'identification.</strong> Identifiant ou mot de passe incorrect.
-      </div>
-      <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
-        <div class="form-group">
-          <label class="username-label" for="username">Identifiant</label>
-          <input
-            type="text"
-            class="form-control"
-            name="username"
-            id="username"
-            placeholder="{{ 'global.form.username.placeholder' | translate }}"
-            formControlName="username"
-            #username
-            data-cy="username"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="password">Mot de passe</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            id="password"
-            placeholder="{{ 'login.form.password.placeholder' | translate }}"
-            formControlName="password"
-            data-cy="password"
-          />
-        </div>
-
-        <button type="submit" class="btn btn-primary" data-cy="submit">S'identifier</button>
-      </form>
-      <div class="titrePage mt-3 alert alert-warning">
-        <a class="alert-link" routerLink="/account/reset/request" data-cy="forgetYourPasswordSelector">Mot de passe oublié ?</a>
+<div class="row justify-content-center">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <h1 class="titrePage" data-cy="loginTitle">S'identifier</h1>
+    <div class="alert alert-danger" *ngIf="authenticationError" data-cy="loginError">
+      <strong>Erreur d'identification.</strong> Identifiant ou mot de passe incorrect.
+    </div>
+    <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
+      <div class="form-group">
+        <label class="username-label" for="username">Identifiant</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          id="username"
+          placeholder="{{ 'global.form.username.placeholder' | translate }}"
+          formControlName="username"
+          #username
+          data-cy="username"
+        />
       </div>
 
-      <div class="titrePage alert alert-warning">
-        <span>Vous n'avez pas encore de compte ?</span><br />
-        <a class="alert-link" routerLink="/account/register">Créer un nouveau compte</a>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          placeholder="{{ 'login.form.password.placeholder' | translate }}"
+          formControlName="password"
+          data-cy="password"
+        />
       </div>
+
+      <button type="submit" class="btn btn-primary" data-cy="submit">S'identifier</button>
+    </form>
+    <div class="titrePage mt-3">
+      <a class="alert-link" routerLink="/account/reset/request" data-cy="forgetYourPasswordSelector">Mot de passe oublié ?</a>
+    </div>
+
+    <div class="titrePage">
+      <span>Vous n'avez pas encore de compte ?</span><br />
+      <a class="alert-link" routerLink="/account/register">Créer un nouveau compte</a>
     </div>
   </div>
 </div>

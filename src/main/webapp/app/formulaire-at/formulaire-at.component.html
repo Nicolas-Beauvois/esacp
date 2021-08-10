@@ -1,0 +1,93 @@
+<h1>Rapport d'accident de travail</h1>
+
+<h2>Victime</h2>
+<form>
+  <div>
+    <div>
+      <label>Matricule</label>
+      <input id="matricule" type="text" /> <br />
+      <label>Nom</label>
+      <input id="nom" type="text" /> <br />
+      <label>Prénom</label>
+      <input id="prenom" type="text" /> <br />
+      <label>Accident sur site ?</label>
+
+      <input type="radio" value="accidentSiteFalse" formControlName="accidentSite" />Non
+      <input type="radio" value="accidentSiteTrue" formControlName="accidentSite" />Oui
+    </div>
+    <div>
+      <label>Service</label>
+      <select id="service" name="service">
+        <option value="base">UAP BASE/CdP</option>
+        <option value="HA">UAP HA</option>
+        <option value="HS">UAP HS</option>
+        <option value="maintenance">Maintenance Prod</option>
+        <option value="DIST">DI et ST</option>
+        <option value="CQ">CQ</option>
+        <option value="supplyChain">Supply chain</option>
+        <option value="supports">Supports</option>
+      </select>
+
+      <label>Statut</label>
+      <select id="statut" name="statut">
+        <option value="technicien">Technicien</option>
+        <option value="oeuvre">Oeuvre</option>
+      </select>
+
+      <label>Contrat</label>
+      <select id="contrat" name="contrat">
+        <option value="cdi">CDI</option>
+        <option value="cdd">CDD</option>
+      </select>
+
+      <label>UAP</label>
+      <input type="radio" value="onco" formControlName="uap" />Onco <input type="radio" value="hs" formControlName="uap" />HS
+      <input type="radio" value="ha" formControlName="uap" />HA <input type="radio" value="lfbManCp" formControlName="uap" />LFB/MAN/CP
+    </div>
+  </div>
+</form>
+
+<h2>Hierarchique</h2>
+<form>
+  <label>ATB ?</label>
+
+  <input type="radio" value="atbSiteFalse" formControlName="atb" />Non <input type="radio" value="atbSiteTrue" formControlName="atb" />Oui
+
+  <label>Pilote</label>
+  <select id="pilote" name="pilote">
+    <option value="lartigau">Oriane LARTIGAU</option>
+    <option value="rivat">Thibaut RIVAT</option>
+    <option value="petre">Hugo PETRE</option>
+    <option value="jacquemain">Antoine JACQUEMAIN</option>
+    <option value="DIST">Stéphane CARLIER</option>
+    <option value="debuissons">Régis DESBUISSONS</option>
+    <option value="gras">Bénédicte GRAS</option>
+    <option value="bourdon">Arnaud BOURDON</option>
+    <option value="hay">Clémentine HAY</option>
+    <option value="pinon">Florent PINON</option>
+    <option value="elhariri">Youssef EL HARIRI</option>
+    <option value="perdrix">Fabrice PERDRIX</option>
+    <option value="levielle">Guislain LEVIELLE</option>
+  </select>
+
+  <label>Codir</label>
+  <select id="codir" name="codir">
+    <option value="rucquoy">Sébatstien RUCQUOY</option>
+    <option value="pinon">Florent PINON</option>
+    <option value="foulon">Xavier Foulon</option>
+    <option value="hay">Clémentine HAY</option>
+    <option value="perdrix">Fabrice PERDRIX</option>
+    <option value="elhariri">Youssef EL HARIRI</option>
+    <option value="stopin">Frédérique STOPIN</option>
+    <option value="boutry">Jacques-Antoine BOUTRY</option>
+  </select>
+
+  <label>Jour connaissance AT</label>
+  <input id="jourAT" type="date" />
+
+  <label>Heure connaissance AT</label>
+  <input id="heureAT" type="time" />
+
+  <label>Prévenu comment ?</label>
+  <input id="méthodeprevenu" type="text" />
+</form>

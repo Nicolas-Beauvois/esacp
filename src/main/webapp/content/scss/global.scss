@@ -15,7 +15,8 @@ h4 {
 }
 
 .containerPage {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 150px);
+  width: 100%;
 }
 
 /* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
@@ -113,13 +114,10 @@ Generic styles
   font-size: larger;
 
   line-height: 50px;
-  bottom: 0;
-  left: 0;
-  width: 100%;
 }
 
 .titrePage {
-  background: #6ee5ef;
+  // background: #6ee5ef;
   text-align: center;
 }
 
